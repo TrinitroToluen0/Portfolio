@@ -1,12 +1,14 @@
-import "./App.css"
-import Header from './components/Header/Header.tsx'
+import "./App.css";
+import Header from "./components/Header/Header.tsx";
+import Home from "./components/Home/Home.tsx";
 
 function App() {
-  return (
-    <>
-        <Header />
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <Home/>
+        </>
+    );
 }
 
-export default App
+export default App;
