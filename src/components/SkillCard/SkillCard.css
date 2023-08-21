@@ -1,17 +1,41 @@
-.card {
+.skillCard {
     background-color: #111111;
-    width: 30%;
     min-height: 400px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.card__title {
-    text-align: center;
+.skillCard__image {
+    width: 90px;
+    height: 90px;
+}
+
+.skillCard__title {
     font-size: 1.5rem;
+    margin-bottom: 0;
 }
 
-.card__description {
+.skillCard__description {
     font-size: 1.2rem;
     color: #888;
+    margin-top: 10px;
+}
+
+.skillCard__children {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 500px) {
+    .skillCard {
+        min-height: 0;
+    }
 }

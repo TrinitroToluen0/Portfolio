@@ -1,10 +1,26 @@
-import "./SkillCard.css"
+import "./SkillCard.css";
+import React from "react";
 
-export default function SkillCard () {
+interface SkillCardProps {
+    image?: string;
+    title: string;
+    description?: string;
+    children?: React.ReactNode;
+}
+
+export default function SkillCard({ image, title, description, children }: SkillCardProps) {
     return (
-        <div className="card">
-            <h3 className="card__title">Skill Card</h3>
-            <p className="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam, impedit dolor? Dolorem sapiente quis suscipit nesciunt dolorum perspiciatis eos sint quas, aspernatur iste excepturi dignissimos libero necessitatibus quisquam aliquam numquam.</p>
+        <div className="skillCard">
+            {image && <img className="skillCard__image" src={image} alt={title} />}
+            <h3 className="skillCard__title">{title}</h3>
+            {description && <p className="skillCard__description">{description}</p>}
+            <div className="skillCard__children">
+                {React.Children.map(children, (child) => (
+                    <>
+                        {child}
+                    </>
+                ))}
+            </div>
         </div>
     );
 }

@@ -1,0 +1,28 @@
+.projectCard {
+    background-color: #111111;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectCard__image {
+    width: 100%;
+}
+
+.projectCard__title {
+    font-size: 1.5rem;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.projectCard__title a {
+    color: unset;
+}
+
+.projectCard__description {
+    font-size: 1.2rem;
+    color: #888;
+    flex-grow: 1;
+    padding-left: 25px;
+    margin-top: 0;
+}

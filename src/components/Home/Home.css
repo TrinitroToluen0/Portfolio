@@ -1,25 +1,15 @@
 .home {
     width: 100vw;
     height: calc(100vh - 70px);
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
-}
-
-.home__inner {
-    height: 90%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 50px;
 }
 
 .home__photo {
     border-radius: 50%;
-    height: 400px;
+    max-height: 400px;
     user-select: none;
     -webkit-user-drag: none;
 }

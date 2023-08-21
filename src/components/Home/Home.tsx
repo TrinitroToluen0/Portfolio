@@ -77,21 +77,19 @@ export default function Home() {
     }, [nameComplete]);
 
     return (
-        <div className="home">
-            <div className="home__inner">
-                <img className="home__photo" src={imagen} alt="Javier Menco's Photo" />
-                <div className="home__info">
-                    <h1 className="home__title">
-                        {title}
-                        <span className="home__name">{name}</span>
-                        {showCursorTitle && <span className="cursor">|</span>}
-                    </h1>
-                    <h2 className="home__subtitle">
-                        {subtitle}
-                        {showCursorSubtitle && <span className="cursor">|</span>}
-                    </h2>
-                </div>
+        <section id="home" className="home">
+            <img className="home__photo" src={imagen} alt="Javier Menco's Photo" />
+            <div className="home__info">
+                <h1 className="home__title">
+                    {title}
+                    <span className="home__name">{name}</span>
+                    {showCursorTitle && <span className="cursor">|</span>}
+                </h1>
+                <h2 className="home__subtitle">
+                    {subtitle}
+                    {showCursorSubtitle && <span className="cursor">|</span>}
+                </h2>
             </div>
-        </div>
+        </section>
     );
 }
