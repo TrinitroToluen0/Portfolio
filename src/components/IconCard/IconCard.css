@@ -16,3 +16,19 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
     transform: scale(1.2);
 }
+
+/* Estilos para pantallas pequeñas (teléfonos móviles) */
+@media (max-width: 767px) {
+    .iconCard {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+/* Estilos para pantallas de tabletas en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .iconCard {
+        width: 75px;
+        height: 75px;
+    }
+}

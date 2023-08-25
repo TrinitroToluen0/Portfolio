@@ -1,9 +1,3 @@
-.skills {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 50px 60px 60px;
-}
-
 .skills__container {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -17,35 +11,24 @@
     grid-column: span 3;
 }
 
-.skills__title {
-    font-size: 2.5rem;
-    text-align: center;
-}
-
-@media (max-width: 1300px) {
-    .skills__container {
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto auto;
-    }
-    
-    .skills__container > :last-child {
-        grid-column: span 1;
-    }
-}
-
-@media (max-width: 912px) {
+/* Estilos para pantallas pequeñas (teléfonos móviles) */
+@media (max-width: 767px) {
     .skills__container {
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto;
     }
-    
     .skills__container > :last-child {
         grid-column: span 1;
     }
 }
 
-@media (max-width: 500px) {
-    .skills {
-        padding: 10px;
+/* Estilos para pantallas de tabletas en orientación vertical */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .skills__container {
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+    }
+    .skills__container > :last-child,  .skills__container > :first-child {
+        grid-column: span 2;
     }
 }

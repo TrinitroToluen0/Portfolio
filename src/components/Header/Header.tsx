@@ -3,21 +3,23 @@ import "./Header.css";
 
 export default function Header() {
     const [activeLink, setActiveLink] = useState("home");
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleScroll = () => {
-        const sections = ["home", "skills", "projects"];
+        const sections = document.querySelectorAll("section");
         const offset = window.innerHeight / 2;
 
         for (const section of sections) {
-            const element = document.getElementById(section);
-            if (element) {
-                const rect = element.getBoundingClientRect();
-                if (rect.top <= offset && rect.bottom >= offset) {
-                    setActiveLink(section);
-                    break;
-                }
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= offset && rect.bottom >= offset) {
+                setActiveLink(section.id);
+                break;
             }
         }
+    };
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
     };
 
     useEffect(() => {
@@ -31,9 +33,10 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <div className="logo">&lt;Javier Menco /&gt;</div>
+                <button className="header__menu" onClick={toggleMenu}></button>
                 <ul className="nav-links">
                     <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
-                    {/* <li><a href="#projects" className={activeLink === "career" ? "active" : ""}>My career</a></li> */}
+                    {/* <li><a href="#career" className={activeLink === "career" ? "active" : ""}>My career</a></li> */}
                     <li><a href="#skills" className={activeLink === "skills" ? "active" : ""}>My skills</a></li>
                     <li><a href="#projects" className={activeLink === "projects" ? "active" : ""}>Projects</a></li>
                     <li><a href="#contact" className={activeLink === "contact" ? "active" : ""}>Contact</a></li>

@@ -1,8 +1,8 @@
 .projectCard {
-    background-color: #111111;
-    border-radius: 15px;
+    background-color: #111;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s;
 }
 
 .projectCard__image {
@@ -10,8 +10,7 @@
 }
 
 .projectCard__title {
-    font-size: 1.5rem;
-    padding-left: 25px;
+    padding: 0 25px;
     margin-bottom: 20px;
 }
 
@@ -20,9 +19,13 @@
 }
 
 .projectCard__description {
-    font-size: 1.2rem;
     color: #888;
     flex-grow: 1;
-    padding-left: 25px;
+    padding: 0 25px;
     margin-top: 0;
+}
+
+.projectCard:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    transform: scale(1.05);
 }
