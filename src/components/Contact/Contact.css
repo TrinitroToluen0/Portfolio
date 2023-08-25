@@ -1,8 +1,8 @@
 .contact__container {
     display: flex;
-    justify-content: center;
     width: 100%;
     max-width: 1620px;
+    margin: auto;
 }
 
 .contact__left, .contact__right {
