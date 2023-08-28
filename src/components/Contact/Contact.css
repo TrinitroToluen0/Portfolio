@@ -1,3 +1,7 @@
+.contact {
+    padding-bottom: 20px;
+}
+
 .contact__container {
     display: flex;
     width: 100%;
@@ -9,9 +13,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 550px;
+    min-height: 600px;
     width: 50%;
-    padding: 0 30px 30px;
+    padding: 30px;
 }
 
 .contact__left {
@@ -60,6 +64,7 @@
 
 .contact__right__description {
     color: #888;
+    margin: 0;
 }
 
 .contact__form {
@@ -67,6 +72,7 @@
     flex-direction: column;
     width: 100%;
     flex-grow: 1;
+    gap: 60px;
 }
 
 .contact__inputBox {
@@ -88,7 +94,7 @@
 
 .contact__form textarea {
     width: 100%;
-    height: 140px;
+    flex-grow: 1;
     resize: none;
     padding: 10px;
     background-color: transparent;
@@ -116,8 +122,7 @@
     border-radius: 20px;
     border: none;
     background-color: #222;
-    color: #888;
-    cursor: pointer;
+    color: #999;
     transition: 0.3s;
     font-size: 1.2rem;
 }
@@ -127,8 +132,10 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    background-color: #117eb8;
+    color: #fff;
+    font-weight: 500;
 }
-
 
 .contact__form input:focus~label,
 .contact__form input:valid~label {
@@ -143,10 +150,11 @@
     border-bottom: 1px solid #f39c12;
 }
 
-.contact__submitButton:hover, .contact__curriculumButton {
+.formReady {
     background-color: #f39c12;
     color: #fff;
     font-weight: 500;
+    cursor: pointer;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

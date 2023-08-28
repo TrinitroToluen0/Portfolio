@@ -1,6 +1,5 @@
 .skillCard {
     background-color: #111111;
-    min-height: 300px;
     border-radius: 15px;
     padding: 30px;
     display: flex;
@@ -19,7 +18,6 @@
 
 .skillCard__description {
     color: #888;
-    margin-top: 20px;
 }
 
 .skillCard__children {

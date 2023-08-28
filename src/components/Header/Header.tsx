@@ -33,7 +33,7 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <div className="logo">&lt;Javier Menco /&gt;</div>
-                <button className="header__menu" onClick={toggleMenu}></button>
+                <button className="header__menu" onClick={toggleMenu} aria-label="Menú"></button>
                 <ul className="nav-links">
                     <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
                     {/* <li><a href="#career" className={activeLink === "career" ? "active" : ""}>My career</a></li> */}

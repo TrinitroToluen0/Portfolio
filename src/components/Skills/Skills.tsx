@@ -6,7 +6,7 @@ import cssIcon from "../../assets/css.svg";
 import javascriptIcon from "../../assets/javascript.svg";
 import mongoIcon from "../../assets/mongodb.svg";
 import expressIcon from "../../assets/express.svg";
-import reactIcon from "../../assets/react.gif";
+import reactIcon from "../../assets/react.svg";
 import nodeIcon from "../../assets/node.svg";
 import phpIcon from "../../assets/php.svg";
 import mySqlIcon from "../../assets/mysql.svg";
