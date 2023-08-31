@@ -1,10 +1,7 @@
 import "./Contact.css";
 import { useEffect, useState } from "react";
+import * as icons from '../../assets/icons.ts'
 import IconCard from "../IconCard/IconCard.tsx";
-import linkedinIcon from "../../assets/linkedin.svg";
-import githubIcon from "../../assets/github.svg";
-import instagramIcon from "../../assets/instagram.svg";
-import gmailIcon from "../../assets/gmail.svg";
 // import curriculum from "../../assets/curriculum.pdf";
 
 export default function Contact() {
@@ -23,7 +20,7 @@ export default function Contact() {
     }, [fullName, email, message]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()        
+        e.preventDefault()
     };
 
     return (
@@ -57,15 +54,15 @@ export default function Contact() {
                         <div className="contact__row1">
                             <p className="contact__right__description description">I usually respond to requests as soon as I receive them, but you can still contact me via my social networks; I've provided them below for you.</p>
                             <div className="contact__gridContainer">
-                                <IconCard icon={linkedinIcon} alt="LinkedIn" />
-                                <IconCard icon={githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0"/>
-                                <IconCard icon={instagramIcon} alt="Instagram" url="https://www.instagram.com/mencoooh/"/>
-                                <IconCard icon={gmailIcon} alt="Email" url="mailto:javiermenco404@gmail.com"/>
+                                <IconCard icon={icons.linkedinIcon} alt="LinkedIn" />
+                                <IconCard icon={icons.githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0"/>
+                                <IconCard icon={icons.instagramIcon} alt="Instagram" url="https://www.instagram.com/mencoooh/"/>
+                                <IconCard icon={icons.gmailIcon} alt="Email" url="mailto:javiermenco404@gmail.com"/>
                             </div>
                         </div>
                         <div className="contact__row2">
                             <a className="contact__curriculumButton" href="a.pdf" download>
-                                Download my CV
+                                Download my curriculum
                             </a>
                         </div>
                     </div>

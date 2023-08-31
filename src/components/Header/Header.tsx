@@ -33,8 +33,8 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <div className="logo">&lt;Javier Menco /&gt;</div>
-                <button className="header__menu" onClick={toggleMenu} aria-label="Menú"></button>
-                <ul className="nav-links">
+                <button className="header__menu-button" onClick={toggleMenu} aria-label="Menú"><span className="material-icons">{menuOpen ? "close" : "menu"}</span></button>
+                <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
                     <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
                     {/* <li><a href="#career" className={activeLink === "career" ? "active" : ""}>My career</a></li> */}
                     <li><a href="#skills" className={activeLink === "skills" ? "active" : ""}>My skills</a></li>
