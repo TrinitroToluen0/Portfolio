@@ -1,6 +1,6 @@
 import "./Contact.css";
 import { useEffect, useState } from "react";
-import * as icons from '../../assets/icons.ts'
+import * as icons from "../../assets/icons.ts";
 import IconCard from "../IconCard/IconCard.tsx";
 // import curriculum from "../../assets/curriculum.pdf";
 
@@ -11,16 +11,14 @@ export default function Contact() {
     const [emailValid, setEmailValid] = useState(false);
     const [messageValid, setMessageValid] = useState(false);
 
-    useEffect(() => { 
-        const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        const isMessageValid = message.length > 50;
-
-        setMessageValid(isMessageValid)
-        setEmailValid(isEmailValid);
+    // Evaluating and changing the state of validation everytime the inputs changes.
+    useEffect(() => {
+        setMessageValid(message.length > 50);
+        setEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
     }, [fullName, email, message]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+        e.preventDefault();
     };
 
     return (
@@ -42,7 +40,7 @@ export default function Contact() {
                             <textarea placeholder="MESSAGE" name="message" id="message" value={message} onChange={(e) => setMessage(e.target.value)} required />
                         </div>
                         <div className="contact__row2">
-                            <button className={`contact__submitButton ${emailValid && messageValid && fullName ? 'formReady' : ''}`} type="submit">
+                            <button className={`contact__submitButton ${emailValid && messageValid && fullName ? "formReady" : ""}`} type="submit">
                                 Send message
                             </button>
                         </div>
@@ -55,9 +53,9 @@ export default function Contact() {
                             <p className="contact__right__description description">I usually respond to requests as soon as I receive them, but you can still contact me via my social networks; I've provided them below for you.</p>
                             <div className="contact__gridContainer">
                                 <IconCard icon={icons.linkedinIcon} alt="LinkedIn" />
-                                <IconCard icon={icons.githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0"/>
-                                <IconCard icon={icons.instagramIcon} alt="Instagram" url="https://www.instagram.com/mencoooh/"/>
-                                <IconCard icon={icons.gmailIcon} alt="Email" url="mailto:javiermenco404@gmail.com"/>
+                                <IconCard icon={icons.githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0" />
+                                <IconCard icon={icons.instagramIcon} alt="Instagram" url="https://www.instagram.com/mencoooh/" />
+                                <IconCard icon={icons.gmailIcon} alt="Email" url="mailto:javiermenco404@gmail.com" />
                             </div>
                         </div>
                         <div className="contact__row2">
