@@ -9,11 +9,12 @@
     margin: auto;
 }
 
-.contact__left, .contact__right {
+.contact__left,
+.contact__right {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 600px;
+    min-height: 650px;
     width: 50%;
     padding: 30px;
 }
@@ -23,7 +24,7 @@
 }
 
 .contact__right {
-    background-color: #0D0D0D;
+    background-color: #0d0d0d;
 }
 
 .contact__left .contact__row1 {
@@ -58,7 +59,12 @@
     margin: auto;
 }
 
-.contact__left__title, .contact__right__title {
+
+.contact__left__title {
+    margin-bottom: 20px;
+}
+
+.contact__right__title {
     margin-bottom: 40px;
 }
 
@@ -72,7 +78,8 @@
     flex-direction: column;
     width: 100%;
     flex-grow: 1;
-    gap: 60px;
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .contact__inputBox {
@@ -84,18 +91,47 @@
 .contact__form input {
     width: 100%;
     height: 100%;
-    padding: 30px 10px 0;
+    padding: 15px 10px 0;
     background-color: transparent;
     color: inherit;
     border: none;
     border-bottom: 1px solid #333;
     font-size: 1rem;
+    padding-right: 40px;
+}
+
+.contact__inputBox__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: var(--cool-green);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.contact__form .textareaBox {
+    position: relative;
+    flex-grow: 1;
+    padding-bottom: 30px;
+}
+
+.textareaBox .charLimit {
+    bottom: 0;
+    right: 20px;
+    position: absolute;
+    margin: 0;
+    color: #666;
+}
+
+.charLimit.valid {
+    color: var(--cool-green);
 }
 
 .contact__form textarea {
     width: 100%;
-    flex-grow: 1;
     resize: none;
+    height: 100%;
     padding: 10px;
     background-color: transparent;
     color: unset;
@@ -110,15 +146,19 @@
     bottom: 24px;
     pointer-events: none;
     font-size: 1rem;
-    color: #888;    
+    color: #888;
     transition: 0.2s;
     padding: 0 10px;
     text-transform: uppercase;
 }
 
-.contact__submitButton, .contact__curriculumButton {
+.contact__submitButton,
+.contact__curriculumButton {
     width: 90%;
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 20px;
     border: none;
     background-color: #222;
@@ -127,34 +167,53 @@
     font-size: 1.2rem;
 }
 
+.contact__form:not(.invalid):not(.submitting) .contact__submitButton:hover {
+    background-color: var(--main-orange-hovered) !important;
+}
+
 .contact__curriculumButton {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    background-color: #117eb8;
+    background-color: var(--mint-blue);
     color: #fff;
     font-weight: 500;
 }
 
-.contact__form input:focus~label,
-.contact__form input:valid~label {
-    color: #f39c12;
+.contact__curriculumButton:hover {
+    background-color: var(--mint-blue-hovered);
+}
+
+.contact__form input:focus ~ label,
+.contact__form input:valid ~ label,
+.contact__form input:disabled ~ label {
+    color: var(--main-orange);
     font-size: 0.85em;
     transform: translateY(-20px);
     font-weight: bolder;
 }
 
-.contact__form input:focus, .contact__form input:valid, .contact__form textarea:focus, .contact__form textarea:valid {
+.contact__form input:focus,
+.contact__form input:valid,
+.contact__form textarea:focus,
+.contact__form textarea:valid {
     outline: none;
-    border-bottom: 1px solid #f39c12;
+    border-bottom: 1px solid var(--main-orange);
 }
 
-.formReady {
-    background-color: #f39c12;
+.contact__form.valid .contact__submitButton {
+    background-color: var(--main-orange);
     color: #fff;
     font-weight: 500;
     cursor: pointer;
+}
+
+.loading-icon {
+    width: 32px;
+    height: 32px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
@@ -164,7 +223,8 @@
         gap: 20px;
     }
 
-    .contact__left, .contact__right {
+    .contact__left,
+    .contact__right {
         width: 100%;
         border-radius: 10px;
     }

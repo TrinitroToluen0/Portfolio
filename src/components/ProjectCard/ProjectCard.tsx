@@ -9,10 +9,10 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ image, title, description, url}: ProjectCardProps) {
     return (
-        <div className="projectCard">
+        <a className="projectCard" href={url} target="_blank">
             <img className="projectCard__image" src={image} alt={title}/>
-            <h3 className="projectCard__title"><a className="projectCard__url" href={url} target="_blank">{title}</a></h3>
+            <h3 className="projectCard__title">{title}</h3>
             <p className="projectCard__description description">{description}</p>
-        </div>
+        </a>
     );
 }

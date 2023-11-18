@@ -17,4 +17,5 @@ export { default as teamworkIcon } from "./teamwork.svg";
 export { default as learningIcon } from "./learning.svg";
 export { default as linkedinIcon } from "./linkedin.svg";
 export { default as instagramIcon } from "./instagram.svg";
-export { default as gmailIcon } from "./gmail.svg"
+export { default as gmailIcon } from "./gmail.svg";
+export { default as loadingIcon } from "./loading.svg";

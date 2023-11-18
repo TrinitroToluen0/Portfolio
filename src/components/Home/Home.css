@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     gap: 50px;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -34,6 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 50vw;
 }
 
 .home__title {
@@ -46,9 +46,13 @@
 .home__subtitle {
     font-size: clamp(20px, 3vw, 3000px);
     font-weight: 400;
-    min-height: 37px;
     user-select: none;
     color: #999;
+    min-height: 4.5vw;
+}
+
+.cursor {
+    color: #fff;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
@@ -59,6 +63,14 @@
     .home__photo {
         width: 60vw;
         height: 60vw;
+    }
+
+    .home__info {
+        min-width: 269px;
+    }
+
+    .home__subtitle {
+        min-height: 25px;
     }
 }
 
@@ -72,12 +84,13 @@
         width: 400px;
         height: 400px;
     }
-}
 
-/* Estilos para pantallas de tabletas en orientación horizontal */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .home__photo {
-        width: 370px;
-        height: 370px;
+    .home__info {
+        min-width: 427px;
+        min-height: 96px;
+    }
+
+    .home__subtitle {
+        min-height: 38px;
     }
 }

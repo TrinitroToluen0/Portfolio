@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: "Euclid Circular B", sans-serif;
+    font-family: "system-ui", "Euclid Circular B", sans-serif;
 }
 
 html {
@@ -12,13 +12,19 @@ html {
 body {
     width: 100vw;
     margin: 0;
-    background-color: #000;
+    background-color: var(--body-bg-color);
     color: #fff;
     overflow-x: hidden;
 }
 
-#root {
+:root {
     max-width: 1920px;
+    --body-bg-color: #000;
+    --main-orange: #F39C12;
+    --main-orange-hovered: #D5800C;
+    --cool-green: #33B864;
+    --mint-blue: #117EB8;
+    --mint-blue-hovered: #0E6A99;
 }
 
 h2 {
@@ -48,7 +54,7 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #f39c12;
+    background-color: var(--main-orange);
 }
 
 input:-webkit-autofill,
@@ -57,6 +63,14 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 1000px #111 inset;
     -webkit-text-fill-color: #fff;
+}
+
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+.orange-text {
+    color: var(--main-orange);
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

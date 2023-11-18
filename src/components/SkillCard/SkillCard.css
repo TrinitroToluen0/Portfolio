@@ -14,10 +14,12 @@
 
 .skillCard__title {
     margin-bottom: 0;
+    text-align: center;
 }
 
 .skillCard__description {
     color: #888;
+    text-align: center;
 }
 
 .skillCard__children {
@@ -33,5 +35,11 @@
 @media(max-width: 500px) {
     .skillCard {
         min-height: 0;
+    }
+}
+
+@media(max-width: 767px) {
+    .skillCard__children {
+        gap: 10px;
     }
 }

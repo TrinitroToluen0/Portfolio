@@ -24,7 +24,6 @@ export default function Header() {
         setMenuOpen(!menuOpen);
     };
 
-
     const handleOutsideClick = (event: MouseEvent) => {
         if (navLinksRef.current && !navLinksRef.current.contains(event.target as Node) && menuButtonRef.current && !menuButtonRef.current.contains(event.target as Node)) {
             setMenuOpen(false);
@@ -45,7 +44,7 @@ export default function Header() {
     return (
         <header className="header">
             <nav className="nav">
-                <div className="logo">Javier Menco</div>
+                <h1 className="logo">Javier Menco</h1>
                 <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menú"><span className="material-icons">{menuOpen ? "close" : "menu"}</span></button>
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`} ref={navLinksRef}>
                     <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
