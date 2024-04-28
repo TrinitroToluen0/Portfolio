@@ -12,11 +12,11 @@ export default function Home() {
     const [profession, setProfession] = useState("");
     const [textIndex, setTextIndex] = useState(0);
     const [cursor, setCursor] = useState(true);
-    const [cursorPosition, setCursorPosition] = useState("top")
+    const [cursorPosition, setCursorPosition] = useState("top");
     const [cursorBlink, setCursorBlink] = useState(false);
 
     useEffect(() => {
-        const delay = 50;
+        const delay = 25;
 
         if (textIndex < greetText.length) {
             setTimeout(() => {
@@ -37,22 +37,22 @@ export default function Home() {
     }, [textIndex]);
 
     useEffect(() => {
-        if(cursorBlink){
+        if (cursorBlink) {
             setInterval(() => {
                 setCursor((prevCursor) => !prevCursor);
             }, 500);
         }
-    }, [cursorBlink])
+    }, [cursorBlink]);
 
     useEffect(() => {
         // Si ya se ha terminado de escribir el saludo y el nombre, el cursor pasará abajo.
         if (textIndex >= greetText.length + nameText.length) {
-            setCursorPosition("bot")
+            setCursorPosition("bot");
         }
 
         // Si ya se ha terminado de escribir todo, el cursor empezará a parpadear.
         if (textIndex >= greetText.length + nameText.length + professionText.length) {
-            setCursorBlink(true)
+            setCursorBlink(true);
         }
     }, [textIndex]);
 
@@ -65,7 +65,10 @@ export default function Home() {
                     <span style={{ color: "var(--main-orange)" }}>{name}</span>
                     {cursor && cursorPosition === "top" && <span className="cursor">|</span>}
                 </p>
-                <span className="home__subtitle">{profession}{cursor && cursorPosition === "bot" && <span className="cursor">|</span>}</span>
+                <span className="home__subtitle">
+                    {profession}
+                    {cursor && cursorPosition === "bot" && <span className="cursor">|</span>}
+                </span>
             </div>
         </section>
     );

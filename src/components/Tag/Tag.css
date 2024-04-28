@@ -1,0 +1,13 @@
+.tag {
+    border-radius: 25px;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tag__icon {
+    width: 2rem;
+}

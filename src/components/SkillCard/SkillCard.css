@@ -32,13 +32,13 @@
     align-items: center;
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .skillCard {
         min-height: 0;
     }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
     .skillCard__children {
         gap: 10px;
     }

@@ -5,6 +5,16 @@
     font-family: "system-ui", "Euclid Circular B", sans-serif;
 }
 
+:root {
+    max-width: 1920px;
+    --body-bg-color: #000;
+    --main-orange: #f39c12;
+    --main-orange-hovered: #d5800c;
+    --cool-green: #33b864;
+    --mint-blue: #117eb8;
+    --mint-blue-hovered: #0e6a99;
+}
+
 html {
     font-size: 16px;
 }
@@ -15,16 +25,7 @@ body {
     background-color: var(--body-bg-color);
     color: #fff;
     overflow-x: hidden;
-}
-
-:root {
-    max-width: 1920px;
-    --body-bg-color: #000;
-    --main-orange: #F39C12;
-    --main-orange-hovered: #D5800C;
-    --cool-green: #33B864;
-    --mint-blue: #117EB8;
-    --mint-blue-hovered: #0E6A99;
+    scroll-behavior: smooth;
 }
 
 h2 {

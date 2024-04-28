@@ -1,8 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import "./Header.css";
 
+const ROUTES = {
+    HOME: "home",
+    CAREER: "career",
+    SKILLS: "skills",
+    PROJECTS: "projects",
+    CONTACT: "contact",
+};
+
 export default function Header() {
-    const [activeLink, setActiveLink] = useState("home");
+    const [activeLink, setActiveLink] = useState(ROUTES.HOME);
     const [menuOpen, setMenuOpen] = useState(false);
     const navLinksRef = useRef<HTMLUListElement | null>(null);
     const menuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -30,11 +38,10 @@ export default function Header() {
         }
     };
 
-
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         document.addEventListener("click", handleOutsideClick);
-        
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("click", handleOutsideClick);
@@ -45,13 +52,31 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <h1 className="logo">Javier Menco</h1>
-                <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menú"><span className="material-icons">{menuOpen ? "close" : "menu"}</span></button>
+                <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menu">
+                    <span className="material-icons">{menuOpen ? "close" : "menu"}</span>
+                </button>
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`} ref={navLinksRef}>
-                    <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
-                    {/* <li><a href="#career" className={activeLink === "career" ? "active" : ""}>My career</a></li> */}
-                    <li><a href="#skills" className={activeLink === "skills" ? "active" : ""}>My skills</a></li>
-                    <li><a href="#projects" className={activeLink === "projects" ? "active" : ""}>Projects</a></li>
-                    <li><a href="#contact" className={activeLink === "contact" ? "active" : ""}>Contact</a></li>
+                    <li>
+                        <a href={`#${ROUTES.HOME}`} className={activeLink === ROUTES.HOME ? "active" : ""}>
+                            Home
+                        </a>
+                    </li>
+                    {/* <li><a href={`#${ROUTES.CAREER}`} className={activeLink === ROUTES.CAREER ? "active" : ""}>My career</a></li> */}
+                    <li>
+                        <a href={`#${ROUTES.SKILLS}`} className={activeLink === ROUTES.SKILLS ? "active" : ""}>
+                            My skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href={`#${ROUTES.PROJECTS}`} className={activeLink === ROUTES.PROJECTS ? "active" : ""}>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href={`#${ROUTES.CONTACT}`} className={activeLink === ROUTES.CONTACT ? "active" : ""}>
+                            Contact
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
