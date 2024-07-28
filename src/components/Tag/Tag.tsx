@@ -1,11 +1,11 @@
 import "./Tag.css";
-import Tag from "./TagInterface.ts";
+import TagInterface from "./TagInterface";
 
-export default function Tag({ color, label, icon }: Tag) {
+export default function Tag({ color, label, icon }: TagInterface) {
     return (
-        <div style={{ backgroundColor: color }} className="tag">
+        <div style={{ borderColor: color }} className="tag">
             <img src={icon} alt={label} className="tag__icon" />
-            {label}
+            <p className="tag__label">{label}</p>
         </div>
     );
 }

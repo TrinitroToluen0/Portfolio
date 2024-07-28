@@ -2,7 +2,7 @@ import "./ProjectCard.css";
 import Project from "../Projects/ProjectInterface.ts";
 import Tag from "../Tag/Tag.tsx";
 
-export default function ProjectCard({ image, title, techStack, description, achievements, index }: Project & { index: number }) {
+export default function ProjectCard({ image, title, techStack, description, achievements, index, repoUrl, demoUrl }: Project & { index: number }) {
     return (
         <article className={`projectCard ${index % 2 === 0 ? "projectCard--even" : ""}`}>
             <img className="projectCard__image" src={image} alt={title} />
@@ -15,10 +15,9 @@ export default function ProjectCard({ image, title, techStack, description, achi
                         ))}
                     </div>
                 )}
-                <div className="techStack"></div>
                 <p className="projectCard__description description">{description}</p>
                 {achievements.length > 0 && (
-                    <div className="projectCard__techStack">
+                    <div>
                         <h4>My achievements with this project</h4>
                         <ul className="projectCard__achievementList">
                             {achievements.map((technology, index) => (
@@ -29,6 +28,16 @@ export default function ProjectCard({ image, title, techStack, description, achi
                         </ul>
                     </div>
                 )}
+                <div className="projectCard__buttons">
+                    <a className="projectCard__button button link-button" href={repoUrl} target="_blank">
+                        See repository
+                    </a>
+                    {demoUrl && (
+                        <a className="projectCard__button button link-button" href={demoUrl} target="_blank">
+                            Live demo
+                        </a>
+                    )}
+                </div>
             </div>
         </article>
     );

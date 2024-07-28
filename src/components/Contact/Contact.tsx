@@ -139,7 +139,7 @@ export default function Contact() {
                                 </span>
                             </div>
                             <div className="contact__inputBox textareaBox">
-                                <p id="charLimit" title={`Max ${minLength} characters and at least ${maxLength}`} className={`charLimit ${messageValid ? "valid" : ""}`}>
+                                <p id="charLimit" title={`Max ${maxLength} characters and at least ${minLength}`} className={`charLimit ${messageValid ? "valid" : ""}`}>
                                     {charCount}/{maxLength - minLength}
                                 </p>
                                 <textarea
@@ -154,7 +154,7 @@ export default function Contact() {
                             </div>
                         </div>
                         <div className="contact__row2">
-                            <button className="contact__submitButton" disabled={formStatus !== FORM_STATUSES.VALID}>
+                            <button className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
                                 {formStatus === FORM_STATUSES.SUBMITTING ? <img className="loading-icon" src={icons.loadingIcon} alt="" /> : null}
                                 {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : "Send Email"}
                             </button>
@@ -177,7 +177,7 @@ export default function Contact() {
                             </div>
                         </div>
                         <div className="contact__row2">
-                            <a className="contact__curriculumButton" href={curriculum} download>
+                            <a className="contact__curriculumButton button link-button" href={curriculum} download>
                                 Download my curriculum
                             </a>
                         </div>

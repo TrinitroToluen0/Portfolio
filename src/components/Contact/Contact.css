@@ -151,8 +151,7 @@
     text-transform: uppercase;
 }
 
-.contact__submitButton,
-.contact__curriculumButton {
+.button {
     width: 90%;
     height: 45px;
     display: flex;
@@ -161,23 +160,31 @@
     border-radius: 20px;
     border: none;
     background-color: #222;
-    color: #999;
     transition: 0.3s;
     font-size: 1.2rem;
+    padding: 10px;
+    text-align: center;
 }
 
-.contact__form:not(.invalid):not(.submitting) .contact__submitButton:hover {
-    background-color: var(--main-orange-hovered) !important;
+.button:not([disabled]):hover {
+    filter: brightness(1.2);
+}
+
+.button[disabled] {
+    color: #999;
+}
+
+.link-button {
+    text-decoration: none;
+}
+
+.link-button:visited {
+    color: inherit;
 }
 
 .contact__curriculumButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
     background-color: var(--mint-blue);
     color: #fff;
-    font-weight: 500;
 }
 
 .contact__curriculumButton:hover {
