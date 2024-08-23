@@ -5,8 +5,9 @@ import SkillsData from "./SkillsData.tsx";
 export default function Skills() {
     return (
         <section id="skills" className="skills">
-            <h2 className="skills__title">
-                <span className="orange-text">My </span> skills
+            <h2 className="projects__title">
+                My skills
+                <span className="section-separator"></span>
             </h2>
             <div className="skills__container">
                 {SkillsData.map((skill, index) => (

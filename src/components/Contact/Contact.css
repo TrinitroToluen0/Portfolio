@@ -20,15 +20,7 @@
 }
 
 .contact__left {
-    background-color: #111;
-}
-
-.contact__right {
-    background-color: #0d0d0d;
-}
-
-.contact__left .contact__row1 {
-    gap: 30px;
+    border-right: none;
 }
 
 .contact__row1 {
@@ -37,6 +29,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 .contact__row2 {
@@ -68,7 +61,6 @@
 }
 
 .contact__right__description {
-    color: #888;
     margin: 0;
 }
 
@@ -149,37 +141,6 @@
     transition: 0.2s;
     padding: 0 10px;
     text-transform: uppercase;
-}
-
-.button {
-    width: 90%;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    border: none;
-    background-color: #222;
-    transition: 0.3s;
-    font-size: 1.2rem;
-    padding: 10px;
-    text-align: center;
-}
-
-.button:not([disabled]):hover {
-    filter: brightness(1.2);
-}
-
-.button[disabled] {
-    color: #999;
-}
-
-.link-button {
-    text-decoration: none;
-}
-
-.link-button:visited {
-    color: inherit;
 }
 
 .contact__curriculumButton {

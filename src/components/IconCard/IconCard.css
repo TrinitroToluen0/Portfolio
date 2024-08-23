@@ -1,7 +1,6 @@
 .iconCard {
     width: 90px;
     height: 90px;
-    border-radius: 20px;
     padding: 8px;
     transition: transform 0.2s;
 }

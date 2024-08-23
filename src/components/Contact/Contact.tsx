@@ -97,11 +97,12 @@ export default function Contact() {
 
     return (
         <section id="contact" className="contact">
-            <h2 className="contact__title">
-                Contact <span className="orange-text">me</span>
+            <h2 className="projects__title">
+                Contact me
+                <span className="section-separator"></span>
             </h2>
             <div className="contact__container">
-                <div className="contact__left">
+                <div className="contact__left card">
                     <h3 className="contact__left__title">Send me an email</h3>
                     {notification.isVisible ? <Notification text={notification.text} type={notification.type}></Notification> : null}
                     <form className={`contact__form ${formStatus}`} onSubmit={handleSubmit} noValidate>
@@ -161,7 +162,7 @@ export default function Contact() {
                         </div>
                     </form>
                 </div>
-                <div className="contact__right">
+                <div className="contact__right card">
                     <h3 className="contact__right__title">Connect with me</h3>
                     <div className="contact__right__content">
                         <div className="contact__row1">
@@ -172,8 +173,6 @@ export default function Contact() {
                             <div className="contact__gridContainer">
                                 <IconCard icon={icons.linkedinIcon} alt="LinkedIn" />
                                 <IconCard icon={icons.githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0" />
-                                <IconCard icon={icons.instagramIcon} alt="Instagram" url="https://www.instagram.com/mencoooh/" />
-                                <IconCard icon={icons.gmailIcon} alt="Email" url="mailto:javiermenco404@gmail.com" />
                             </div>
                         </div>
                         <div className="contact__row2">

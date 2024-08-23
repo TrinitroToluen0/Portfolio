@@ -5,7 +5,6 @@ export default interface Project {
     title: string;
     techStack: Technology[];
     description: string;
-    achievements: string[];
     repoUrl?: string;
     demoUrl?: string;
 }
