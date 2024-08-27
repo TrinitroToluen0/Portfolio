@@ -17,10 +17,7 @@
     min-height: 650px;
     width: 50%;
     padding: 30px;
-}
-
-.contact__left {
-    border-right: none;
+    border-radius: 0;
 }
 
 .contact__row1 {

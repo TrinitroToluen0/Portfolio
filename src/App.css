@@ -8,7 +8,8 @@
 
 :root {
     max-width: 1440px;
-    --body-bg-color: #0C0A09;
+    --body-bg-color: #000;
+    --body-bg-color-1: #0C0A09;
     --main-orange: #DDB414;
     --main-orange-hovered: #D5800C;
     --cool-green: #33B864;
@@ -131,7 +132,7 @@ input:-webkit-autofill:active {
 .card {
     background-color: var(--body-bg-color);
     border: 1px solid #222;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 .hyperlink {
@@ -141,9 +142,6 @@ input:-webkit-autofill:active {
 .hyperlink,
 .highlighted {
     color: var(--main-orange);
-}
-
-.bold, .hyperlink, .highlighted {
     font-weight: 600;
 }
 
@@ -158,5 +156,14 @@ input:-webkit-autofill:active {
 @media (min-width: 768px) and (max-width: 1199px) {
     html {
         font-size: 14px;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

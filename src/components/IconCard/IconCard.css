@@ -15,16 +15,7 @@
 }
 
 .iconCard__image[alt="React"] {
-    animation: logo-spin infinite 10s linear;
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    animation: spin infinite 10s linear;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

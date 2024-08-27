@@ -21,7 +21,7 @@ const ProjectsData: Project[] = [
     {
         image: "https://previews.123rf.com/images/patterndesign/patterndesign1706/patterndesign170601028/80050485-resumen-de-fondo-de-imagen-16-9-relaci%C3%B3n-de-aspecto-en-el-estilo-de-arte-de-p%C3%ADxeles.jpg",
         title: "🤖 Growy Discord bot",
-        description: `<a class='hyperlink' href='https://ciese.co' target='_blank' rel='nofollow'>Growy</a> is a <b>Discord bot</b> for tracking invitations and <b>growing</b> Discord communities. Featuring a <b>referral system</b> with economy, interchat, bump reminder and more.<br><br>
+        description: `<a class='hyperlink' href='https://top.gg/bot/1195233538115637308' target='_blank' rel='nofollow'>Growy</a> is a <b>Discord bot</b> for tracking invitations and <b>growing</b> Discord communities. Featuring a <b>referral system</b> with economy, interchat, bump reminder and more.<br><br>
             This was a large project that marked a stage in my career, it was the first application that I developed from scratch that reached deployment, which helped me learn about <span class='highlighted'>CI/CD</span>, <span class='highlighted'>IAAS</span>, <span class='highlighted'>SSH</span>, etc. I designed the bot <span class='highlighted'>modularly</span>, which made it easier to mantain, scale, and also to use.
             `,
         repoUrl: "https://github.com/TrinitroToluen0/GrowyBot",

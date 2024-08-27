@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import * as icons from "../../assets/icons.ts";
 import IconCard from "../IconCard/IconCard.tsx";
 import Notification, { useNotification } from "../Notification/Notification";
+import config from "../../config.ts";
 
 import curriculum from "../../assets/curriculum.pdf";
 
@@ -70,7 +71,7 @@ export default function Contact() {
             };
 
             try {
-                const response = await fetch("/api/portfolio/contact", {
+                const response = await fetch(config.contactEndpoint, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -165,20 +166,14 @@ export default function Contact() {
                 <div className="contact__right card">
                     <h3 className="contact__right__title">Connect with me</h3>
                     <div className="contact__right__content">
-                        <div className="contact__row1">
-                            <p className="contact__right__description description">
-                                I usually respond to emails as soon as I receive them, but you can still contact me via my social networks, also you can see my work and career
-                                there; I've provided them below for you.
-                            </p>
-                            <div className="contact__gridContainer">
-                                <IconCard icon={icons.linkedinIcon} alt="LinkedIn" />
-                                <IconCard icon={icons.githubIcon} alt="GitHub" url="https://github.com/TrinitroToluen0" />
-                            </div>
-                        </div>
-                        <div className="contact__row2">
-                            <a className="contact__curriculumButton button link-button" href={curriculum} download>
-                                Download my curriculum
-                            </a>
+                        <p className="contact__right__description description">
+                            I usually respond to emails as soon as I receive them, but you can still contact me via my social networks, also you can see my work and career there;
+                            I've provided them below for you.
+                        </p>
+                        <div className="contact__gridContainer">
+                            <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.linkedInProfile}/>
+                            <IconCard icon={icons.githubIcon} alt="GitHub" url={config.githubProfile} />
+                            <IconCard icon={icons.pdfIcon} alt="Curriculum" url={curriculum}></IconCard>
                         </div>
                     </div>
                 </div>

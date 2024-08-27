@@ -63,13 +63,13 @@ export default function Header() {
                     </li>
                     {/* <li><a href={`#${ROUTES.CAREER}`} className={activeLink === ROUTES.CAREER ? "active" : ""}>My career</a></li> */}
                     <li>
-                        <a href={`#${ROUTES.SKILLS}`} className={activeLink === ROUTES.SKILLS ? "active" : ""}>
-                            My skills
+                        <a href={`#${ROUTES.PROJECTS}`} className={activeLink === ROUTES.PROJECTS ? "active" : ""}>
+                            Projects
                         </a>
                     </li>
                     <li>
-                        <a href={`#${ROUTES.PROJECTS}`} className={activeLink === ROUTES.PROJECTS ? "active" : ""}>
-                            Projects
+                        <a href={`#${ROUTES.SKILLS}`} className={activeLink === ROUTES.SKILLS ? "active" : ""}>
+                            My skills
                         </a>
                     </li>
                     <li>
