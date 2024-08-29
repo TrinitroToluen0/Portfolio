@@ -9,20 +9,18 @@
 :root {
     max-width: 1440px;
     --body-bg-color: #000;
-    --body-bg-color-1: #0C0A09;
-    --main-orange: #DDB414;
-    --main-orange-hovered: #D5800C;
-    --cool-green: #33B864;
-    --mint-blue: #117EB8;
-    --mint-blue-hovered: #0E6A99;
-    --font-color: #A8A29ECC;
-    --font-white: #E4E4E3;
-    --border-main-color: #222;
+    --body-bg-color-1: #0c0a09;
+    --primary-color: #6F23FF;
+    --cool-green: #33b864;
+    --font-color: #a8a29ecc;
+    --font-white: #e4e4e3;
+    --border-main-color: #111;
     --header-height: 70px;
 }
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -32,6 +30,18 @@ body {
     color: var(--font-color);
     overflow-x: hidden;
     counter-reset: section;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #050111, #000000);
+    z-index: -1;
+    pointer-events: none;
 }
 
 h2 {
@@ -44,15 +54,17 @@ h2 {
 h2::before {
     content: "0" counter(section) ". ";
     counter-increment: section;
-    opacity: .7;
-    margin-right: .5em;
+    opacity: 0.7;
+    margin-right: 0.5em;
 }
 
 h3 {
     font-size: 1.5rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--font-white);
 }
 
@@ -66,12 +78,13 @@ section {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    position: relative;
 }
 
 .section-separator {
     background-color: #252020;
     flex-grow: 1;
-    height: .125rem;
+    height: 0.125rem;
     transform: translateY(400%);
     margin-left: 20px;
 }
@@ -81,7 +94,7 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--main-orange);
+    background-color: var(--primary-color);
 }
 
 input:-webkit-autofill,
@@ -97,7 +110,7 @@ input:-webkit-autofill:active {
 }
 
 .orange-text {
-    color: var(--main-orange);
+    color: var(--primary-color);
 }
 
 .button {
@@ -117,7 +130,7 @@ input:-webkit-autofill:active {
 }
 
 .button:not([disabled]):hover {
-    filter: brightness(1.2);
+    background-color: var(--primary-color);
 }
 
 .button[disabled] {
@@ -125,13 +138,12 @@ input:-webkit-autofill:active {
 }
 
 .link-button {
-    /* color: #999; */
     text-decoration: none;
 }
 
 .card {
     background-color: var(--body-bg-color);
-    border: 1px solid #222;
+    border: 1px solid var(--border-main-color);
     border-radius: 12px;
 }
 
@@ -141,8 +153,12 @@ input:-webkit-autofill:active {
 
 .hyperlink,
 .highlighted {
-    color: var(--main-orange);
+    color: var(--primary-color);
     font-weight: 600;
+}
+
+section:last-of-type {
+    padding-bottom: 30px;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

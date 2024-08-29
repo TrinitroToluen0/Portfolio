@@ -30,6 +30,7 @@
     align-items: center;
 }
 
+
 @media (max-width: 500px) {
     .skillCard {
         min-height: 0;

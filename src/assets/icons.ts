@@ -21,3 +21,4 @@ export { default as gmailIcon } from "./gmail.svg";
 export { default as loadingIcon } from "./loading.svg";
 export { default as awsIcon } from "./aws.svg";
 export { default as pdfIcon } from "./pdf.svg";
+export { default as gitIcon } from "./git.svg";

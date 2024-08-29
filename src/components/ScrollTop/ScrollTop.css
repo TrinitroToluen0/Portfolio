@@ -1,0 +1,30 @@
+.scrollTop {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px;
+    color: #FFF;
+    border-radius: 50%;
+    border: 1px solid var(--border-main-color);
+    background-color: var(--body-bg-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    user-select: none;
+}
+
+.scrollTop:hover {
+    background-color: var(--primary-color);
+}
+
+.scrollTop.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

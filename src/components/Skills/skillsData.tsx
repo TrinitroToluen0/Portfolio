@@ -40,6 +40,8 @@ const SkillsData: Skill[] = [
                 <IconCard icon={icons.tsIcon} alt="TypeScript" />
                 <IconCard icon={icons.githubIcon} alt="GitHub" />
                 <IconCard icon={icons.markdownIcon} alt="MarkDown" />
+                <IconCard icon={icons.awsIcon} alt="Amazon Web Services"></IconCard>
+                <IconCard icon={icons.gitIcon} alt="Git"></IconCard>
             </>
         ),
     },

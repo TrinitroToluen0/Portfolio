@@ -2,12 +2,11 @@ import "./Contact.css";
 import React, { useEffect, useState } from "react";
 import * as icons from "../../assets/icons.ts";
 import IconCard from "../IconCard/IconCard.tsx";
-import Notification, { useNotification } from "../Notification/Notification";
 import config from "../../config.ts";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import curriculum from "../../assets/curriculum.pdf";
-
-const RECAPTCHA_SITE_KEY = "6LcUff8oAAAAAPtdKUjmSMbJs0b0j5GLz9bi_Swb";
 
 const FORM_STATUSES = {
     VALID: "valid",
@@ -26,7 +25,6 @@ export default function Contact() {
     const [messageValid, setMessageValid] = useState(false);
     const [formStatus, setFormStatus] = useState(FORM_STATUSES.INVALID);
     const [charCount, setCharCount] = useState(-50);
-    const { notification, createNotification } = useNotification();
 
     // Validación de email y mensaje
     useEffect(() => {
@@ -59,7 +57,7 @@ export default function Contact() {
         setFormStatus(FORM_STATUSES.SUBMITTING);
 
         // Obtener el token de reCAPTCHA
-        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact" });
+        const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
 
         // Validar el formulario
         if (emailValid && messageValid && fullName) {
@@ -71,7 +69,7 @@ export default function Contact() {
             };
 
             try {
-                const response = await fetch(config.contactEndpoint, {
+                const response = await fetch(config.CONTACT_ENDPOINT, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -82,16 +80,17 @@ export default function Contact() {
                 const data = await response.json();
 
                 if (data.success) {
-                    createNotification("Mail successfully sent.", "success");
                     setMessage("");
                     setCharCount(-50);
+                    toast.success("Mail successfully sent", { position: "bottom-right", style: { color: "#FFF", backgroundColor: "#33b864" } });
+                    setFormStatus(FORM_STATUSES.INVALID);
                 } else {
-                    createNotification(data.error, "error");
+                    toast.error(data.error, { position: "bottom-right" });
                     setFormStatus(FORM_STATUSES.VALID);
                 }
             } catch (error) {
+                toast.error("Network error", { position: "bottom-right", style: { color: "#FFF", backgroundColor: "#d63447" } });
                 setFormStatus(FORM_STATUSES.VALID);
-                createNotification("Network error", "error");
             }
         }
     };
@@ -105,74 +104,70 @@ export default function Contact() {
             <div className="contact__container">
                 <div className="contact__left card">
                     <h3 className="contact__left__title">Send me an email</h3>
-                    {notification.isVisible ? <Notification text={notification.text} type={notification.type}></Notification> : null}
                     <form className={`contact__form ${formStatus}`} onSubmit={handleSubmit} noValidate>
-                        <div className="contact__row1">
-                            <div className="contact__inputBox">
-                                <input
-                                    type="text"
-                                    name="fullName"
-                                    id="fullName"
-                                    maxLength={50}
-                                    value={fullName}
-                                    onChange={(e) => setFullName(e.target.value)}
-                                    required
-                                    disabled={formStatus === FORM_STATUSES.SUBMITTING}
-                                />
-                                <label htmlFor="fullName">name or company</label>
-                                <span className="material-icons contact__inputBox__icon" style={{ opacity: fullName.length > 0 ? 1 : 0 }}>
-                                    check_circle
-                                </span>
-                            </div>
-                            <div className="contact__inputBox">
-                                <input
-                                    type="text"
-                                    name="email"
-                                    id="email"
-                                    maxLength={70}
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    disabled={formStatus === FORM_STATUSES.SUBMITTING}
-                                />
-                                <label htmlFor="email">email address</label>
-                                <span className="material-icons contact__inputBox__icon" style={{ opacity: emailValid ? 1 : 0 }}>
-                                    check_circle
-                                </span>
-                            </div>
-                            <div className="contact__inputBox textareaBox">
-                                <p id="charLimit" title={`Max ${maxLength} characters and at least ${minLength}`} className={`charLimit ${messageValid ? "valid" : ""}`}>
-                                    {charCount}/{maxLength - minLength}
-                                </p>
-                                <textarea
-                                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleMessageInput(e)}
-                                    placeholder="MESSAGE"
-                                    name="message"
-                                    id="message"
-                                    value={message}
-                                    required
-                                    disabled={formStatus === FORM_STATUSES.SUBMITTING}
-                                />
-                            </div>
+                        <div className="contact__inputBox">
+                            <input
+                                type="text"
+                                name="fullName"
+                                id="fullName"
+                                maxLength={50}
+                                value={fullName}
+                                onChange={(e) => setFullName(e.target.value)}
+                                required
+                                disabled={formStatus === FORM_STATUSES.SUBMITTING}
+                            />
+                            <label htmlFor="fullName">name or company</label>
+                            <span className="material-icons contact__inputBox__icon" style={{ opacity: fullName.length > 0 ? 1 : 0 }}>
+                                check_circle
+                            </span>
                         </div>
-                        <div className="contact__row2">
-                            <button className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
-                                {formStatus === FORM_STATUSES.SUBMITTING ? <img className="loading-icon" src={icons.loadingIcon} alt="" /> : null}
-                                {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : "Send Email"}
-                            </button>
+                        <div className="contact__inputBox">
+                            <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                maxLength={70}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                disabled={formStatus === FORM_STATUSES.SUBMITTING}
+                            />
+                            <label htmlFor="email">email address</label>
+                            <span className="material-icons contact__inputBox__icon" style={{ opacity: emailValid ? 1 : 0 }}>
+                                check_circle
+                            </span>
                         </div>
+                        <div className="contact__inputBox textareaBox">
+                            <p id="charLimit" title={`Max ${maxLength} characters and at least ${minLength}`} className={`charLimit ${messageValid ? "valid" : ""}`}>
+                                {charCount}/{maxLength - minLength}
+                            </p>
+                            <textarea
+                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleMessageInput(e)}
+                                placeholder="MESSAGE"
+                                name="message"
+                                id="message"
+                                value={message}
+                                required
+                                disabled={formStatus === FORM_STATUSES.SUBMITTING}
+                            />
+                        </div>
+
+                        <button type="submit" className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
+                            {formStatus === FORM_STATUSES.SUBMITTING ? <img className="loading-icon" src={icons.loadingIcon} alt="" /> : null}
+                            {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : "Send Email"}
+                        </button>
                     </form>
                 </div>
                 <div className="contact__right card">
                     <h3 className="contact__right__title">Connect with me</h3>
                     <div className="contact__right__content">
                         <p className="contact__right__description description">
-                            I usually respond to emails as soon as I receive them, but you can still contact me via my social networks, also you can see my work and career there;
-                            I've provided them below for you.
+                            I usually respond to emails as soon as I receive them, but you can also contact me through my social networks, you can also check my work and career
+                            there; I've provided them below for you.
                         </p>
                         <div className="contact__gridContainer">
-                            <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.linkedInProfile}/>
-                            <IconCard icon={icons.githubIcon} alt="GitHub" url={config.githubProfile} />
+                            <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
+                            <IconCard icon={icons.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
                             <IconCard icon={icons.pdfIcon} alt="Curriculum" url={curriculum}></IconCard>
                         </div>
                     </div>

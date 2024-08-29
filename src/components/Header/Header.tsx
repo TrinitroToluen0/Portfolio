@@ -57,23 +57,23 @@ export default function Header() {
                 </button>
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`} ref={navLinksRef}>
                     <li>
-                        <a href={`#${ROUTES.HOME}`} className={activeLink === ROUTES.HOME ? "active" : ""}>
+                        <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.HOME}`} className={activeLink === ROUTES.HOME ? "active" : ""}>
                             Home
                         </a>
                     </li>
-                    {/* <li><a href={`#${ROUTES.CAREER}`} className={activeLink === ROUTES.CAREER ? "active" : ""}>My career</a></li> */}
+                    {/* <li><a onClick={() => setMenuOpen(false)} href={`#${ROUTES.CAREER}`} className={activeLink === ROUTES.CAREER ? "active" : ""}>My career</a></li> */}
                     <li>
-                        <a href={`#${ROUTES.PROJECTS}`} className={activeLink === ROUTES.PROJECTS ? "active" : ""}>
+                        <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.PROJECTS}`} className={activeLink === ROUTES.PROJECTS ? "active" : ""}>
                             Projects
                         </a>
                     </li>
                     <li>
-                        <a href={`#${ROUTES.SKILLS}`} className={activeLink === ROUTES.SKILLS ? "active" : ""}>
+                        <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.SKILLS}`} className={activeLink === ROUTES.SKILLS ? "active" : ""}>
                             My skills
                         </a>
                     </li>
                     <li>
-                        <a href={`#${ROUTES.CONTACT}`} className={activeLink === ROUTES.CONTACT ? "active" : ""}>
+                        <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.CONTACT}`} className={activeLink === ROUTES.CONTACT ? "active" : ""}>
                             Contact
                         </a>
                     </li>
