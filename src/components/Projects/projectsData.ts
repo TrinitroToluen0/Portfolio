@@ -1,9 +1,12 @@
 import Project from "./ProjectInterface";
 import * as icons from "../../assets/icons.ts";
+import CiesePreview from "../../assets/ciese-1.webp";
+import GrowyPreview from "../../assets/growy-1.webp";
+import ChatAppPreview from "../../assets/ChatApp-1.webp";
 
 const ProjectsData: Project[] = [
     {
-        image: "src/assets/ciese-1.webp",
+        image: CiesePreview,
         title: "🌐 CIESE",
         description: `
         Website designed to manage the <b>attendance</b> of speakers and attendees at an <a class='hyperlink' href='https://ciese.co' target='_blank' rel='nofollow'>international educational event</a>.<br><br> 
@@ -18,7 +21,7 @@ const ProjectsData: Project[] = [
         ],
     },
     {
-        image: "src/assets/Growy-1.webp",
+        image: GrowyPreview,
         title: "🤖 Growy Discord bot",
         description: `<a class='hyperlink' href='https://top.gg/bot/1195233538115637308' target='_blank' rel='nofollow'>Growy</a> is a <b>Discord bot</b> for tracking invitations and <b>growing</b> Discord communities. Featuring a <b>referral system</b> with economy, interchat, bump reminder and more.<br><br>
             This was a large project that marked a stage in my career, it was the first application that I developed from scratch that reached deployment, which helped me learn about <span class='highlighted'>CI/CD</span>, <span class='highlighted'>IAAS</span>, <span class='highlighted'>SSH</span>, etc. I designed the bot <span class='highlighted'>modularly</span>, which made it easier to mantain, scale, and also to use.
@@ -33,7 +36,7 @@ const ProjectsData: Project[] = [
         ],
     },
     {
-        image: "src/assets/ChatApp-1.webp",
+        image: ChatAppPreview,
         title: "💬 ChatApp",
         description:
             "Real time chat application made with <span class='highlighted'>Socket.io</span>, supports channels (groups) and profile pictures. <br><br> I started this project when I was in the second semester of university with the goal of practicing what I learned at university and <span class='highlighted'>learning something new</span>. With very little knowledge of frontend development, I managed to develop a large part of the application. I learned a lot about <span class='highlighted'>sockets</span> and the multiple uses they have, and I developed the entire frontend <span class='highlighted'>without frameworks</span>.",
