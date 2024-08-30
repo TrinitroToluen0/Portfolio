@@ -2,7 +2,7 @@ import Project from "./ProjectInterface";
 import * as icons from "../../assets/icons.ts";
 import CiesePreview from "../../assets/ciese-1.webp";
 import GrowyPreview from "../../assets/growy-1.webp";
-import ChatAppPreview from "../../assets/ChatApp-1.webp";
+import ChatAppPreview from "../../assets/chatApp-1.webp";
 
 const ProjectsData: Project[] = [
     {
