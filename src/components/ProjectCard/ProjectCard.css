@@ -6,9 +6,18 @@
     max-width: 100%;
 }
 
+.projectCard__image-container {
+    min-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .projectCard__image {
-    object-fit: cover;
-    width: 45%;
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
 }
 
 .projectCard__information {
@@ -41,7 +50,7 @@
     margin-top: 20px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .projectCard {
         flex-direction: column-reverse;
     }

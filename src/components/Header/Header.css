@@ -81,7 +81,7 @@
         flex-direction: column;
         gap: 30px;
         margin: 0;
-        background-color: rgba(var(--body-bg-color), 0.9);
+        background-color: var(--body-bg-color);
         backdrop-filter: saturate(180%) blur(5px);
         padding: 20px 40px;
         width: 100%;

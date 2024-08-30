@@ -26,7 +26,9 @@ export default function ProjectCard({ image, title, techStack, description, repo
                     )}
                 </div>
             </div>
-            <img className="projectCard__image" src={image} alt={title} />
+            <div className="projectCard__image-container">
+                <img className="projectCard__image" src={image} alt={title} />
+            </div>
         </article>
     );
 }

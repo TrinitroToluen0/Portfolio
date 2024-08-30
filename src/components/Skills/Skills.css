@@ -24,7 +24,7 @@
 }
 
 /* Estilos para pantallas de tabletas en orientación vertical */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1299px) {
     .skills__container {
         grid-template-columns: auto auto;
     }
