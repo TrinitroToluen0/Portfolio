@@ -57,7 +57,7 @@ export default function Contact() {
         setFormStatus(FORM_STATUSES.SUBMITTING);
 
         // Obtener el token de reCAPTCHA
-        const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
+        // const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
 
         // Validar el formulario
         if (emailValid && messageValid && fullName) {
@@ -65,7 +65,8 @@ export default function Contact() {
                 fullName,
                 email,
                 message,
-                token,
+                _captcha: "false",
+                // token,
             };
 
             try {
@@ -77,15 +78,15 @@ export default function Contact() {
                     body: JSON.stringify(formData),
                 });
 
-                const data = await response.json();
+                // const data = await response.json();
 
-                if (data.success) {
+                if (response.ok) {
                     setMessage("");
                     setCharCount(-50);
                     toast.success("Mail successfully sent", { position: "bottom-right", style: { color: "#FFF", backgroundColor: "#33b864" } });
                     setFormStatus(FORM_STATUSES.INVALID);
                 } else {
-                    toast.error(data.error, { position: "bottom-right" });
+                    toast.error("Network error", { position: "bottom-right" });
                     setFormStatus(FORM_STATUSES.VALID);
                 }
             } catch (error) {
