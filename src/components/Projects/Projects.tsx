@@ -1,6 +1,6 @@
 import "./Projects.css";
 import ProjectCard from "../ProjectCard/ProjectCard.tsx";
-import ProjectsData from "./ProjectsData";
+import ProjectsData from "./ProjectsData.ts";
 import Project from "./ProjectInterface.ts";
 
 export default function Projects() {
