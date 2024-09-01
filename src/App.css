@@ -158,6 +158,10 @@ input:-webkit-autofill:active {
     font-weight: 600;
 }
 
+section:first-of-type {
+    padding-top: var(--header-height);
+}
+
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
 @media (max-width: 767px) {
     html {
