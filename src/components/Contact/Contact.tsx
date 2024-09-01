@@ -161,16 +161,14 @@ export default function Contact() {
                 </div>
                 <div className="contact__right card">
                     <h3 className="contact__right__title">Connect with me</h3>
-                    <div className="contact__right__content">
-                        <p className="contact__right__description description">
-                            I usually respond to emails as soon as I receive them, but you can also contact me through my social networks, you can also check my work and career
-                            there; I've provided them below for you.
-                        </p>
-                        <div className="contact__gridContainer">
-                            <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
-                            <IconCard icon={icons.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
-                            <IconCard icon={icons.pdfIcon} alt="Curriculum" url={curriculum}></IconCard>
-                        </div>
+                    <p className="contact__right__description description">
+                        I usually respond to emails as soon as I receive them, but you can also contact me through my social networks, you can also check my work and career there;
+                        I've provided them below for you.
+                    </p>
+                    <div className="contact__socials">
+                        <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
+                        <IconCard icon={icons.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
+                        <IconCard icon={icons.pdfIcon} alt="Curriculum" url={curriculum}></IconCard>
                     </div>
                 </div>
             </div>

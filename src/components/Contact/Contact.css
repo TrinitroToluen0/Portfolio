@@ -1,7 +1,3 @@
-/* .contact {
-    padding-bottom: 20px;
-} */
-
 .contact__container {
     display: flex;
     width: 100%;
@@ -10,12 +6,12 @@
     gap: 30px;
 }
 
-.contact__left,
-.contact__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.contact .card {
     padding: 30px;
+}
+
+.contact h3 {
+    text-align: center;
 }
 
 .contact__left {
@@ -24,33 +20,16 @@
 
 .contact__right {
     width: 40%;
-}
-
-.contact__right__content {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.contact__gridContainer {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    gap: 20px;
-    width: fit-content;
-    margin: 50px auto auto;
-}
-
-.contact__left__title {
-    margin-bottom: 20px;
-}
-
-.contact__right__title {
-    margin-bottom: 40px;
-}
-
-.contact__right__description {
-    margin: 0;
+.contact__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-grow: 1;
 }
 
 .contact__form {
@@ -59,7 +38,7 @@
     align-items: center;
     width: 100%;
     flex-grow: 1;
-    gap: 30px;
+    gap: 35px;
     margin-top: 20px;
 }
 
