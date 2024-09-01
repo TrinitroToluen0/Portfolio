@@ -29,6 +29,7 @@ body {
     color: var(--font-color);
     overflow-x: hidden;
     counter-reset: section;
+    padding-top: var(--header-height);
 }
 
 body::before {
@@ -156,10 +157,6 @@ input:-webkit-autofill:active {
 .highlighted {
     color: var(--primary-color);
     font-weight: 600;
-}
-
-section:first-of-type {
-    padding-top: var(--header-height);
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
