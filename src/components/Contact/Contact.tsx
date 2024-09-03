@@ -83,14 +83,14 @@ export default function Contact() {
                 if (response.ok) {
                     setMessage("");
                     setCharCount(-50);
-                    toast.success("Mail successfully sent", { position: "bottom-right", style: { color: "#FFF", backgroundColor: "#33b864" } });
+                    toast.success("Mail successfully sent");
                     setFormStatus(FORM_STATUSES.INVALID);
                 } else {
                     toast.error("Network error", { position: "bottom-right" });
                     setFormStatus(FORM_STATUSES.VALID);
                 }
             } catch (error) {
-                toast.error("Network error", { position: "bottom-right", style: { color: "#FFF", backgroundColor: "#d63447" } });
+                toast.error("Network error");
                 setFormStatus(FORM_STATUSES.VALID);
             }
         }
@@ -118,7 +118,7 @@ export default function Contact() {
                                 disabled={formStatus === FORM_STATUSES.SUBMITTING}
                             />
                             <label htmlFor="fullName">name or company</label>
-                            <span className="material-icons contact__inputBox__icon" style={{ opacity: fullName.length > 0 ? 1 : 0 }}>
+                            <span translate="no" className="material-icons contact__inputBox__icon" style={{ opacity: fullName.length > 0 ? 1 : 0 }}>
                                 check_circle
                             </span>
                         </div>
@@ -134,7 +134,7 @@ export default function Contact() {
                                 disabled={formStatus === FORM_STATUSES.SUBMITTING}
                             />
                             <label htmlFor="email">email address</label>
-                            <span className="material-icons contact__inputBox__icon" style={{ opacity: emailValid ? 1 : 0 }}>
+                            <span translate="no" className="material-icons contact__inputBox__icon" style={{ opacity: emailValid ? 1 : 0 }}>
                                 check_circle
                             </span>
                         </div>

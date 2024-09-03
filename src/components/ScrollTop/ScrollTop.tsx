@@ -20,7 +20,7 @@ export default () => {
     }, []);
 
     return (
-        <span onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`scrollTop material-icons ${isVisible ? "visible" : ""}`}>
+        <span translate="no" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`scrollTop material-icons ${isVisible ? "visible" : ""}`}>
             arrow_upward
         </span>
     );

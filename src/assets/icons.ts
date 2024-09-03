@@ -22,3 +22,6 @@ export { default as loadingIcon } from "./loading.svg";
 export { default as awsIcon } from "./aws.svg";
 export { default as pdfIcon } from "./pdf.svg";
 export { default as gitIcon } from "./git.svg";
+export { default as azureIcon } from "./azure.svg";
+export { default as npmIcon } from "./npm.svg";
+export { default as composerIcon } from "./composer.svg";

@@ -159,6 +159,10 @@ input:-webkit-autofill:active {
     font-weight: 600;
 }
 
+.material-icons {
+    unicode-bidi: plaintext;
+}
+
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
 @media (max-width: 767px) {
     html {

@@ -8,19 +8,19 @@ import ScrollToTopButton from "./components/ScrollTop/ScrollTop.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import { scrollToElement } from "./functions/scrollToElement";
 import { useEffect } from "react";
-import { ToastContainer } from "react-toastify";
+import { Flip, ToastContainer } from "react-toastify";
 
 function App() {
     useEffect(scrollToElement, []);
     return (
         <>
+            <ToastContainer position="bottom-right" autoClose={5000} limit={3} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Flip}/>
             <Header />
             <Home />
             <Projects />
             <Skills />
             <Contact />
             <Footer></Footer>
-            <ToastContainer limit={2}></ToastContainer>
             <ScrollToTopButton></ScrollToTopButton>
         </>
     );
