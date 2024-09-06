@@ -72,7 +72,9 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menu">
-                    <span translate="no" className="material-icons">{menuOpen ? "close" : "menu"}</span>
+                    <span translate="no" className="material-icons">
+                        {menuOpen ? "close" : "menu"}
+                    </span>
                 </button>
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`} ref={navLinksRef}>
                     <li>
