@@ -8,7 +8,7 @@ import ScrollToTopButton from "./components/ScrollTop/ScrollTop.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import { scrollToElement } from "./functions/scrollToElement";
 import { useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
 
     return (
         <>
-            <button onClick={() => toast.loading("Se ha enviado tu email. Te responderé tanto pronto como pueda.")}></button>
             <ToastContainer stacked position="bottom-right" autoClose={4000} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
             <Header />
             <Home />
