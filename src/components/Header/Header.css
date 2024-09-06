@@ -13,32 +13,25 @@
     z-index: 100;
 }
 
-.nav {
+header .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    margin-left: 200px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    user-select: none;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-}
-
-.nav-links li {
-    margin-right: 35px;
+    gap: 35px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #FFF;
+    color: var(--font-color);
     font-size: 1rem;
+    transition: color 0.1s;
 }
 
 .nav-links a:focus-visible {
@@ -48,7 +41,7 @@
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--font-white);
 }
 
 .nav-links.open {
@@ -57,7 +50,7 @@
 
 .nav-links .active {
     position: relative;
-    color: var(--primary-color);
+    color: var(--font-white);
 }
 
 .header__menu-button {
@@ -72,7 +65,70 @@
     color: var(--primary-color);
 }
 
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown button {
+    background: transparent;
+    border: none;
+    color: var(--font-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.1s;
+}
+
+.language-dropdown button:hover {
+    color: var(--font-white);
+}
+
+.language-dropdown button p {
+    transform: translateY(5%);
+    font-size: 1rem;
+}
+
+.language-dropdown ul {
+    list-style: none;
+    background-color: var(--body-bg-color);
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid var(--border-main-color);
+    border-radius: 10px;
+}
+
+.language-dropdown li {
+    margin: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color 0.1s;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.language-dropdown li:hover {
+    background-color: var(--border-main-color);
+    color: var(--font-white);
+}
+
+.language-dropdown ul.open {
+    display: flex;
+}
+
 @media (max-width: 899px) {
+    .nav {
+        width: 100% !important;
+    }
     .nav-links {
         display: none;
         position: absolute;
@@ -93,9 +149,6 @@
     }
     .nav-links li a {
         font-size: 1.5rem;
-    }
-    .logo {
-        margin: 0 0 0 20px;
     }
     .header__menu-button {
         display: flex;

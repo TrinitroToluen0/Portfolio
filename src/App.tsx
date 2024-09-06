@@ -14,14 +14,14 @@ function App() {
     useEffect(scrollToElement, []);
     return (
         <>
-            <ToastContainer position="bottom-right" autoClose={5000} limit={3} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Flip}/>
+            <ToastContainer position="bottom-right" autoClose={4000} limit={3} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Flip}/>
             <Header />
             <Home />
             <Projects />
             <Skills />
             <Contact />
-            <Footer></Footer>
-            <ScrollToTopButton></ScrollToTopButton>
+            <Footer/>
+            <ScrollToTopButton/>
         </>
     );
 }

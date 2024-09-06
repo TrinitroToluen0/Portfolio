@@ -1,12 +1,13 @@
 import "./Contact.css";
 import React, { useEffect, useState } from "react";
-import * as icons from "../../assets/icons.ts";
+import * as icons from "../../assets.ts";
 import IconCard from "../IconCard/IconCard.tsx";
 import config from "../../config.ts";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import curriculum from "../../assets/curriculum.pdf";
+import { useTranslation } from "react-i18next";
 
 const FORM_STATUSES = {
     VALID: "valid",
@@ -25,6 +26,7 @@ export default function Contact() {
     const [messageValid, setMessageValid] = useState(false);
     const [formStatus, setFormStatus] = useState(FORM_STATUSES.INVALID);
     const [charCount, setCharCount] = useState(-50);
+    const { t } = useTranslation();
 
     // Validación de email y mensaje
     useEffect(() => {
@@ -99,12 +101,12 @@ export default function Contact() {
     return (
         <section id="contact" className="contact">
             <h2 className="projects__title">
-                Contact me
+                {t("contact.sectionTitle")}
                 <span className="section-separator"></span>
             </h2>
             <div className="contact__container">
                 <div className="contact__left card">
-                    <h3 className="contact__left__title">Send me an email</h3>
+                    <h3 className="contact__left__title">{t("contact.form.title")}</h3>
                     <form className={`contact__form ${formStatus}`} onSubmit={handleSubmit} noValidate>
                         <div className="contact__inputBox">
                             <input
@@ -117,7 +119,7 @@ export default function Contact() {
                                 required
                                 disabled={formStatus === FORM_STATUSES.SUBMITTING}
                             />
-                            <label htmlFor="fullName">name or company</label>
+                            <label htmlFor="fullName">{t("contact.form.nameLabel")}</label>
                             <span translate="no" className="material-icons contact__inputBox__icon" style={{ opacity: fullName.length > 0 ? 1 : 0 }}>
                                 check_circle
                             </span>
@@ -133,7 +135,7 @@ export default function Contact() {
                                 required
                                 disabled={formStatus === FORM_STATUSES.SUBMITTING}
                             />
-                            <label htmlFor="email">email address</label>
+                            <label htmlFor="email">{t("contact.form.emailLabel")}</label>
                             <span translate="no" className="material-icons contact__inputBox__icon" style={{ opacity: emailValid ? 1 : 0 }}>
                                 check_circle
                             </span>
@@ -144,7 +146,7 @@ export default function Contact() {
                             </p>
                             <textarea
                                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleMessageInput(e)}
-                                placeholder="MESSAGE"
+                                placeholder={t("contact.form.messageLabel")}
                                 name="message"
                                 id="message"
                                 value={message}
@@ -155,15 +157,14 @@ export default function Contact() {
 
                         <button type="submit" className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
                             {formStatus === FORM_STATUSES.SUBMITTING ? <img className="loading-icon" src={icons.loadingIcon} alt="" /> : null}
-                            {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : "Send Email"}
+                            {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : t("contact.form.sendLabel")}
                         </button>
                     </form>
                 </div>
                 <div className="contact__right card">
-                    <h3 className="contact__right__title">Connect with me</h3>
+                    <h3 className="contact__right__title">{t("contact.connections.title")}</h3>
                     <p className="contact__right__description description">
-                        I usually respond to emails as soon as I receive them, but you can also contact me through my social networks, you can also check my work and career there;
-                        I've provided them below for you.
+                        {t("contact.connections.description")}
                     </p>
                     <div className="contact__socials">
                         <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />

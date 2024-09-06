@@ -104,6 +104,10 @@
     border-bottom: 1px solid #333;
 }
 
+.contact__form textarea::placeholder{
+    text-transform: uppercase;
+}
+
 .contact__inputBox label {
     position: absolute;
     left: 0;
@@ -139,7 +143,7 @@
 
 .contact__form.valid .contact__submitButton {
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--font-white);
     font-weight: 500;
     cursor: pointer;
 }

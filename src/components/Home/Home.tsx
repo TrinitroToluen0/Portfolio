@@ -1,17 +1,16 @@
+import { useTranslation } from "react-i18next";
 import "./Home.css";
 
 export default function Home() {
+    const { t } = useTranslation();
     return (
         <section id="home" className="home">
             <div className="home__inner">
                 <div className="home__info">
-                    <p className="home__title">Javier Menco's Portfolio</p>
-                    <p className="home__subtitle">Software Developer</p>
+                    <h1 className="home__title">{t("home.sectionTitle")}</h1>
+                    <p className="home__subtitle">{t("home.subtitle")}</p>
                 </div>
-                <p className="home__details description">
-                    Specialized in <span className="highlighted">backend development</span>, with <span className="highlighted">+3 years of programming experience</span> and a
-                    solid understanding of frontend technologies. I have developed a strong foundation in creating efficient and scalable web applications, with{" "}
-                    <b>expertise in server-side technologies, databases, and RESTful API design</b>.
+                <p className="home__details description" dangerouslySetInnerHTML={{ __html: t("home.description") }}>
                 </p>
             </div>
         </section>

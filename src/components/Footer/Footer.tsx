@@ -1,15 +1,11 @@
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 export default () => {
+    const { t } = useTranslation();
     return (
         <footer className="footer">
-            <p>
-                Made by <span className="highlighted">Javier Menco</span> using{" "}
-                <a href="https://react.dev" className="hyperlink">
-                    React
-                </a>
-                , <a href="https://vitejs.dev" className="hyperlink">Vite</a> and <a href="https://www.typescriptlang.org" className="hyperlink">TypeScript</a>
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t("footer.text") }}></p>
         </footer>
     );
-}
+};

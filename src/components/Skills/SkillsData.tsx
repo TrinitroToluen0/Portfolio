@@ -1,29 +1,26 @@
-import * as icons from "../../assets/icons.ts";
+import * as icons from "../../assets.ts";
 import IconCard from "../IconCard/IconCard.tsx";
 import Skill from "./SkillInterface.ts";
 
 const SkillsData: Skill[] = [
     {
         image: icons.codeIcon,
-        title: "Scalable and Robust Code",
-        description:
-            "Possessing a strong foundation in writing code capable of handling increasing demands and complexities while maintaining high performance. Prioritizing coding practices that emphasize scalability and robustness, ensuring software that can adapt and withstand various challenges.",
+        title: "skills.scalability.title",
+        description: "skills.scalability.description",
     },
     {
         image: icons.teamworkIcon,
-        title: "Teamwork",
-        description:
-            "Excelling in collaborative environments and contributing effectively to achieve common goals. Communicating openly, sharing ideas, and actively participating in team discussions to foster a positive and productive team dynamic.",
+        title: "skills.teamwork.title",
+        description: "skills.teamwork.description",
     },
     {
         image: icons.learningIcon,
-        title: "Rapid and Continuous Learning",
-        description:
-            "Demonstrating a remarkable ability to rapidly grasp and consistently acquire new knowledge and skills. Adapting swiftly to any internal technology within an organization, enabling seamless integration and valuable contributions.",
+        title: "skills.autodidact.title",
+        description: "skills.autodidact.description",
     },
     {
-        title: "Hard skills",
-        description: "I can create responsive full-stack websites and various types of applications for you, utilizing the following technologies",
+        title: "skills.hardSkills.title",
+        description: "skills.hardSkills.description",
         children: (
             <>
                 <IconCard icon={icons.htmlIcon} alt="HTML5" />

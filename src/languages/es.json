@@ -1,0 +1,66 @@
+{
+    "header": {
+        "home": "Inicio",
+        "projects": "Proyectos",
+        "skills": "Habilidades",
+        "contact": "Contacto"
+    },
+    "home": {
+        "sectionTitle": "Portafolio de Javier Menco",
+        "subtitle": "Desarrollador de Software",
+        "description": "Especializado en <span class=\"highlighted\">desarrollo web backend</span>, con <span class=\"highlighted\">+3 años de experiencia en programación</span> y <span class=\"highlighted\">+1 año de experiencia laboral profesional</span> con un sólido entendimiento de tecnologías frontend. He desarrollado una base fuerte en la creación de aplicaciones web eficientes y escalables, con <b>experiencia en tecnologías del lado del servidor, bases de datos y diseño de API RESTful</b>."
+    },
+    "projects": {
+        "sectionTitle": "Mis Proyectos",
+        "repositoryButtonLabel": "Ver repositorio",
+        "demoButtonLabel": "Ver demostración",
+        "ciese": {
+            "title": "🌐 CIESE",
+            "description": "Sitio web diseñado para gestionar la asistencia de ponentes y asistentes en un <a class='hyperlink' href='https://ciese.co' target='_blank' rel='nofollow'>evento</a> académico internacional.<br><br>Implementé registro de usuarios, gestión de sesiones, carga y descarga de archivos, <span class=\"highlighted\">integración de pagos</span>, contabilidad de base de datos y envío automatizado de correos. Redujo la carga de trabajo, errores humanos y <span class=\"highlighted\">mejoró la eficiencia</span> en el registro y pago."
+        },
+        "growy": {
+            "title": "🤖 Growy: Bot de discord",
+            "description": "<a class='hyperlink' href='https://top.gg/bot/1195233538115637308' target='_blank' rel='nofollow'>Growy</a> es un <b>bot de Discord</b> para rastrear invitaciones y <b>hacer crecer</b> comunidades de Discord. Cuenta con un <b>sistema de referidos</b> con economía, interchat, recordatorio de bump y más.<br><br>Fue la primera aplicación que desarrollé desde cero que llegó al despliegue, lo cual me ayudó a aprender sobre <span class='highlighted'>CI/CD</span>, <span class='highlighted'>IAAS</span>, <span class='highlighted'>SSH</span>, etc. Diseñé el bot de manera <span class='highlighted'>modular</span>, lo que facilitó su mantenimiento, escalabilidad y uso."
+        },
+        "chatApp": {
+            "title": "💬 ChatApp",
+            "description": "Aplicación de chat en tiempo real hecha con <span class='highlighted'>Socket.io</span>, soporta canales (grupos) y fotos de perfil. <br><br> Comencé este proyecto cuando estaba en el segundo semestre de la universidad con el objetivo de practicar lo aprendido y <span class='highlighted'>aprender algo nuevo</span>. Logré desarrollar gran parte de la aplicación, y a su vez aprendí mucho sobre <span class='highlighted'>sockets</span> y los múltiples usos que tienen, y desarrollé todo el frontend <span class='highlighted'>sin frameworks</span>."
+        }
+    },
+    "skills": {
+        "sectionTitle": "Mis habilidades",
+        "scalability": {
+            "title": "Código escalable y robusto",
+            "description": "Soy capaz de gestionar complejidades crecientes sin comprometer el rendimiento del código base. Aplico principios <span class=\"highlighted\">SOLID</span> y conceptos de arquitectura de software como el <span class=\"highlighted\">vertical slicing</span>, garantizo soluciones escalables, y robustas para asegurar la mantenibilidad del código."
+        },
+        "teamwork": {
+            "title": "Liderazgo y trabajo en equipo",
+            "description": "Aunque soy <span class=\"highlighted\">autosuficiente</span>, me gusta trabajar en equipo. He liderado proyectos y contribuido para alcanzar objetivos comunes con mis compañeros. Me comunico abiertamente, comparto ideas y participo activamente en discusiones de equipo para entregar los mejores resultados."
+        },
+        "autodidact": {
+            "title": "Aprendizaje rápido y autodidacta",
+            "description": "Aunque estoy <span class=\"highlighted\">especializándome en el desarrollo backend</span>, también estoy constantemente aprendiendo nuevas habilidades y conocimientos de todas las áreas de la programación. <b>Me es fácil adaptarme rápidamente a cualquier tecnología</b> interna dentro de una organización."
+        },
+        "hardSkills": {
+            "title": "Habilidades técnicas",
+            "description": "Puedo crear sitios web full-stack responsivos y varios tipos de aplicaciones para ti, utilizando las siguientes tecnologías"
+        }
+    },
+    "contact": {
+        "sectionTitle": "Contáctame",
+        "form": {
+            "title": "Envíame un email",
+            "nameLabel": "Nombre completo",
+            "emailLabel": "Dirección de email",
+            "messageLabel": "Mensaje",
+            "sendLabel": "Enviar correo"
+        },
+        "connections": {
+            "title": "Conéctate conmigo",
+            "description": "Suelo responder a los correos electrónicos tan pronto como los recibo, pero también puedes contactarme a través de mis redes sociales, donde también puedes ver mi trabajo y carrera; te las proporciono a continuación."
+        }
+    },
+    "footer": {
+        "text": "Hecho por <span class=\"highlighted\">Javier Menco</span> usando <a href=\"https://react.dev\" class=\"hyperlink\">React</a>, <a href=\"https://vitejs.dev\" class=\"hyperlink\">Vite</a> y <a href=\"https://www.typescriptlang.org\" class=\"hyperlink\">TypeScript</a>"
+    }
+}

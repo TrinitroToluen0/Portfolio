@@ -2,12 +2,14 @@ import "./Projects.css";
 import ProjectCard from "../ProjectCard/ProjectCard.tsx";
 import ProjectsData from "./ProjectsData.ts";
 import Project from "./ProjectInterface.ts";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
+    const {t} = useTranslation();
     return (
         <section id="projects" className="projects">
             <h2 className="projects__title">
-                My projects
+                {t("projects.sectionTitle")}
                 <span className="section-separator"></span>
             </h2>
             <div className="projects__container">
@@ -15,9 +17,9 @@ export default function Projects() {
                     <ProjectCard
                         key={index}
                         image={project.image}
-                        title={project.title}
+                        title={t(project.title)}
                         techStack={project.techStack}
-                        description={project.description}
+                        description={t(project.description)}
                         repoUrl={project.repoUrl}
                         demoUrl={project.demoUrl}></ProjectCard>
                 ))}

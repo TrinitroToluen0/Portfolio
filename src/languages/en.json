@@ -1,0 +1,66 @@
+{
+    "header": {
+        "home": "Home",
+        "projects": "Projects",
+        "skills": "Skills",
+        "contact": "Contact"
+    },
+    "home": {
+        "sectionTitle": "Javier Menco's Portfolio",
+        "subtitle": "Software Developer",
+        "description": "Specialized in <span class=\"highlighted\">backend web development</span>, with <span class=\"highlighted\">3+ years of programming experience</span> and <span class=\"highlighted\">1+ year of professional work experience</span>, with a solid understanding of frontend technologies. I have built a strong foundation in creating efficient and scalable web applications, with <b>experience in server-side technologies, databases, and RESTful API design</b>."
+    },
+    "projects": {
+        "sectionTitle": "My Projects",
+        "repositoryButtonLabel": "View repository",
+        "demoButtonLabel": "View demo",
+        "ciese": {
+            "title": "🌐 CIESE",
+            "description": "Website designed to manage speakers and attendees in an international academic <a class='hyperlink' href='https://ciese.co' target='_blank' rel='nofollow'>event</a>.<br><br>I implemented user registration, session management, file uploads and downloads, <span class=\"highlighted\">payment integration</span>, database accounting, and automated email sending. This reduced workload, human errors, and <span class=\"highlighted\">improved efficiency</span> in registration and payment processes."
+        },
+        "growy": {
+            "title": "🤖 Growy: Discord Bot",
+            "description": "<a class='hyperlink' href='https://top.gg/bot/1195233538115637308' target='_blank' rel='nofollow'>Growy</a> is a <b>Discord bot</b> for tracking invites and <b>growing</b> Discord communities. It features a <b>referral system</b> with economy, interchat, bump reminders, and more.<br><br>This was the first app I developed from scratch to deployment, which helped me learn about <span class='highlighted'>CI/CD</span>, <span class='highlighted'>IAAS</span>, <span class='highlighted'>SSH</span>, etc. I designed the bot in a <span class='highlighted'>modular</span> way, making it easier to maintain, scale, and use."
+        },
+        "chatApp": {
+            "title": "💬 ChatApp",
+            "description": "Real-time chat application built with <span class='highlighted'>Socket.io</span>, supporting channels (groups) and profile pictures.<br><br>I started this project in my second semester at university to practice what I had learned and <span class='highlighted'>learn something new</span>. I managed to develop most of the app, and I also learned a lot about <span class='highlighted'>sockets</span> and their various use cases, while developing the entire frontend <span class='highlighted'>without frameworks</span>."
+        }
+    },
+    "skills": {
+        "sectionTitle": "My Skills",
+        "scalability": {
+            "title": "Scalable and robust code",
+            "description": "I am able to manage growing complexities without compromising core code performance. I apply <span class=\"highlighted\">SOLID</span> principles and software architecture concepts like <span class=\"highlighted\">vertical slicing</span>, ensuring scalable and robust solutions to maintain codebase sustainability."
+        },
+        "teamwork": {
+            "title": "Leadership and teamwork",
+            "description": "Even though I am <span class=\"highlighted\">self-sufficient</span>, I enjoy working in a team. I have led projects and contributed to achieving common goals with my peers. I communicate openly, share ideas, and actively participate in team discussions to deliver the best results."
+        },
+        "autodidact": {
+            "title": "Quick learner and self-taught",
+            "description": "Although I am <span class=\"highlighted\">specializing in backend development</span>, I am constantly learning new skills and knowledge in all areas of programming. <b>I can quickly adapt to any internal technology</b> within an organization."
+        },
+        "hardSkills": {
+            "title": "Technical skills",
+            "description": "I can build responsive full-stack websites and various types of applications for you, using the following technologies."
+        }
+    },
+    "contact": {
+        "sectionTitle": "Contact Me",
+        "form": {
+            "title": "Send me an email",
+            "nameLabel": "Full Name",
+            "emailLabel": "Email Address",
+            "messageLabel": "Message",
+            "sendLabel": "Send email"
+        },
+        "connections": {
+            "title": "Connect with me",
+            "description": "I usually respond to emails as soon as I receive them, but you can also reach me through my social media, where you can also check out my work and career; I provide them below."
+        }
+    },
+    "footer": {
+        "text": "Made by <span class=\"highlighted\">Javier Menco</span> using <a href=\"https://react.dev\" class=\"hyperlink\">React</a>, <a href=\"https://vitejs.dev\" class=\"hyperlink\">Vite</a>, and <a href=\"https://www.typescriptlang.org\" class=\"hyperlink\">TypeScript</a>."
+    }
+}

@@ -3,11 +3,11 @@
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    max-width: 100%;
 }
 
 .projectCard__image-container {
     min-width: 45%;
+    max-width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,6 +52,10 @@
 @media (max-width: 1400px) {
     .projectCard {
         flex-direction: column-reverse;
+    }
+
+    .projectCard__image-container {
+        max-width: none;
     }
 
     .projectCard__information {
