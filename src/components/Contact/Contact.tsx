@@ -1,18 +1,15 @@
 import "./Contact.css";
 import React, { useEffect, useState } from "react";
-import * as icons from "../../assets.ts";
+import * as assets from "../../assets.ts";
 import IconCard from "../IconCard/IconCard.tsx";
 import config from "../../config.ts";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-import curriculum from "../../assets/curriculum.pdf";
 import { useTranslation } from "react-i18next";
 
-const FORM_STATUSES = {
-    VALID: "valid",
-    SUBMITTING: "submitting",
-    INVALID: "invalid",
+enum FORM_STATUSES {
+    VALID,
+    SUBMITTING,
+    INVALID,
 };
 
 const minLength: number = 50;
@@ -53,50 +50,54 @@ export default function Contact() {
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (formStatus !== FORM_STATUSES.VALID) return;
-        setFormStatus(FORM_STATUSES.SUBMITTING);
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (formStatus !== FORM_STATUSES.VALID) return;
+    setFormStatus(FORM_STATUSES.SUBMITTING);
 
-        // Obtener el token de reCAPTCHA
-        // const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
+    // Obtener el token de reCAPTCHA
+    // const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
 
-        // Validar el formulario
-        if (emailValid && messageValid && fullName) {
-            const formData = {
-                fullName,
-                email,
-                message,
-                _captcha: "false",
-                // token,
-            };
+    // Validar el formulario
+    if (emailValid && messageValid && fullName) {
+        const formData = {
+            fullName,
+            email,
+            message,
+            _captcha: "false",
+            // token,
+        };
 
-            try {
-                const response = await fetch(config.CONTACT_ENDPOINT, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData),
-                });
+        const sendMailPromise = fetch(config.CONTACT_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
 
-                // const data = await response.json();
+        toast.promise(sendMailPromise, {
+            pending: t("contact.notifications.sending"),
+            success: t("contact.notifications.success"),
+            error: t("contact.notifications.error"),
+        });
 
-                if (response.ok) {
-                    setMessage("");
-                    setCharCount(-50);
-                    toast.success("Mail successfully sent");
-                    setFormStatus(FORM_STATUSES.INVALID);
-                } else {
-                    toast.error("Network error", { position: "bottom-right" });
-                    setFormStatus(FORM_STATUSES.VALID);
-                }
-            } catch (error) {
-                toast.error("Network error");
+        try {
+            const response = await sendMailPromise;
+
+            if (response.ok) {
+                setMessage("");
+                setCharCount(-50);
+                setFormStatus(FORM_STATUSES.INVALID);
+            } else {
                 setFormStatus(FORM_STATUSES.VALID);
             }
+        } catch (error) {
+            setFormStatus(FORM_STATUSES.VALID);
         }
-    };
+    }
+};
+
 
     return (
         <section id="contact" className="contact">
@@ -107,7 +108,7 @@ export default function Contact() {
             <div className="contact__container">
                 <div className="contact__left card">
                     <h3 className="contact__left__title">{t("contact.form.title")}</h3>
-                    <form className={`contact__form ${formStatus}`} onSubmit={handleSubmit} noValidate>
+                    <form className={`contact__form ${formStatus === FORM_STATUSES.VALID ? "valid" : ""}`} onSubmit={handleSubmit} noValidate>
                         <div className="contact__inputBox">
                             <input
                                 type="text"
@@ -156,20 +157,17 @@ export default function Contact() {
                         </div>
 
                         <button type="submit" className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
-                            {formStatus === FORM_STATUSES.SUBMITTING ? <img className="loading-icon" src={icons.loadingIcon} alt="" /> : null}
-                            {formStatus === FORM_STATUSES.SUBMITTING ? "Sending..." : t("contact.form.sendLabel")}
+                            {t("contact.form.sendLabel")}
                         </button>
                     </form>
                 </div>
                 <div className="contact__right card">
                     <h3 className="contact__right__title">{t("contact.connections.title")}</h3>
-                    <p className="contact__right__description description">
-                        {t("contact.connections.description")}
-                    </p>
+                    <p className="contact__right__description description">{t("contact.connections.description")}</p>
                     <div className="contact__socials">
-                        <IconCard icon={icons.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
-                        <IconCard icon={icons.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
-                        <IconCard icon={icons.pdfIcon} alt="Curriculum" url={curriculum}></IconCard>
+                        <IconCard icon={assets.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
+                        <IconCard icon={assets.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
+                        <IconCard icon={assets.pdfIcon} alt="Curriculum" url={assets.curriculum}></IconCard>
                     </div>
                 </div>
             </div>

@@ -72,7 +72,7 @@ export default function Header() {
         <header className="header">
             <nav className="nav">
                 <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menu">
-                    <span className="material-icons">{menuOpen ? "close" : "menu"}</span>
+                    <span translate="no" className="material-icons">{menuOpen ? "close" : "menu"}</span>
                 </button>
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`} ref={navLinksRef}>
                     <li>
@@ -102,14 +102,16 @@ export default function Header() {
                             translate
                         </span>
                         <p>{languageNames[i18n.language]}</p>
-                        <span translate="no" className="material-icons">arrow_drop_down</span>
+                        <span translate="no" className="material-icons">
+                            arrow_drop_down
+                        </span>
                     </button>
 
                     <ul className={languageMenuOpen ? "open" : ""} ref={languageMenuRef}>
                         {Object.keys(languageNames).map((lng) => (
                             <li key={lng} onClick={() => handleChangeLanguage(lng)}>
-                                <span className="material-icons check-icon" style={{ visibility: i18n.language === lng ? "visible" : "hidden" }}>
-                                    check
+                                <span className="material-icons check-icon" translate="no">
+                                    {i18n.language === lng ? "check" : "radio_button_unchecked"}
                                 </span>
                                 {languageNames[lng]}
                             </li>

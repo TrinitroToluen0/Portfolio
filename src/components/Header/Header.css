@@ -116,6 +116,10 @@ header .nav {
     border-radius: 10px;
 }
 
+.language-dropdown li span {
+    font-size: 1.2rem;
+}
+
 .language-dropdown li:hover {
     background-color: var(--border-main-color);
     color: var(--font-white);

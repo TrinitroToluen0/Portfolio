@@ -53,7 +53,12 @@
             "nameLabel": "Nombre completo",
             "emailLabel": "Dirección de email",
             "messageLabel": "Mensaje",
-            "sendLabel": "Enviar correo"
+            "sendLabel": "Enviar email"
+        },
+        "notifications": {
+            "sending": "Enviando email",
+            "success": "Email enviado! Te responderé tan pronto como pueda.",
+            "error": "Hubo un error al enviar el email."
         },
         "connections": {
             "title": "Conéctate conmigo",

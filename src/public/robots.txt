@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://javiermenco.com/sitemap-index.xml
