@@ -6,7 +6,7 @@ const ProjectsData: Project[] = [
         image: assets.CiesePreview,
         title: "projects.ciese.title",
         description: "projects.ciese.description",
-        repoUrl: "https://github.com/TrinitroToluen0/CIESE",
+        demoUrl: "https://ciese.co",
         techStack: [
             { displayName: "PHP", backgroundColor: "#8993be", icon: assets.phpIcon },
             { displayName: "HTML", backgroundColor: "#e44f26", icon: assets.htmlIcon },
