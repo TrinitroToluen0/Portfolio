@@ -18,9 +18,11 @@ export default function ProjectCard({ image, title, techStack, description, repo
                 )}
                 <p className="projectCard__description description" dangerouslySetInnerHTML={{ __html: Array.isArray(description) ? description.join(" ") : description }}></p>
                 <div className="projectCard__buttons">
-                    <a className="projectCard__button button link-button" href={repoUrl} target="_blank">
-                        {t("projects.repositoryButtonLabel")}
-                    </a>
+                    {repoUrl && (
+                        <a className="projectCard__button button link-button" href={repoUrl} target="_blank">
+                            {t("projects.repositoryButtonLabel")}
+                        </a>
+                    )}
                     {demoUrl && (
                         <a className="projectCard__button button link-button" href={demoUrl} target="_blank">
                             {t("projects.demoButtonLabel")}
