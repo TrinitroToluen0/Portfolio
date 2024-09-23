@@ -5,7 +5,7 @@ import Project from "./ProjectInterface.ts";
 import { useTranslation } from "react-i18next";
 
 export default function Projects() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     return (
         <section id="projects" className="projects">
             <h2 className="projects__title">
