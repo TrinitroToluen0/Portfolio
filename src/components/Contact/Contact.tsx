@@ -10,7 +10,7 @@ enum FORM_STATUSES {
     VALID,
     SUBMITTING,
     INVALID,
-};
+}
 
 const minLength: number = 50;
 const maxLength: number = 5000 + minLength;
@@ -50,54 +50,51 @@ export default function Contact() {
         }
     };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (formStatus !== FORM_STATUSES.VALID) return;
-    setFormStatus(FORM_STATUSES.SUBMITTING);
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (formStatus !== FORM_STATUSES.VALID) return;
+        setFormStatus(FORM_STATUSES.SUBMITTING);
 
-    // Obtener el token de reCAPTCHA
-    // const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
+        // Obtener el token de reCAPTCHA
+        const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
 
-    // Validar el formulario
-    if (emailValid && messageValid && fullName) {
-        const formData = {
-            fullName,
-            email,
-            message,
-            _captcha: "false",
-            // token,
-        };
+        // Validar el formulario
+        if (emailValid && messageValid && fullName) {
+            const formData = {
+                fullName,
+                email,
+                message,
+                token,
+            };
 
-        const sendMailPromise = fetch(config.CONTACT_ENDPOINT, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+            const id = toast.loading(t("contact.notifications.sending"));
 
-        toast.promise(sendMailPromise, {
-            pending: t("contact.notifications.sending"),
-            success: t("contact.notifications.success"),
-            error: t("contact.notifications.error"),
-        });
+            try {
+                const response = await fetch(config.CONTACT_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                });
 
-        try {
-            const response = await sendMailPromise;
+                const data = await response.json();
 
-            if (response.ok) {
-                setMessage("");
-                setCharCount(-50);
-                setFormStatus(FORM_STATUSES.INVALID);
-            } else {
+                if (data.success) {
+                    setMessage("");
+                    setCharCount(-50);
+                    setFormStatus(FORM_STATUSES.INVALID);
+                    toast.update(id, { render: t("contact.notifications.success"), type: "success", isLoading: false, closeButton: true });
+                } else {
+                    setFormStatus(FORM_STATUSES.VALID);
+                    toast.update(id, { render: t("contact.notifications.error"), type: "error", isLoading: false, closeButton: true });
+                }
+            } catch (error) {
                 setFormStatus(FORM_STATUSES.VALID);
+                toast.update(id, { render: t("contact.notifications.error"), type: "error", isLoading: false, closeButton: true });
             }
-        } catch (error) {
-            setFormStatus(FORM_STATUSES.VALID);
         }
-    }
-};
-
+    };
 
     return (
         <section id="contact" className="contact">

@@ -56,9 +56,9 @@
             "sendLabel": "Enviar email"
         },
         "notifications": {
-            "sending": "Enviando email",
-            "success": "Email enviado! Te responderé tan pronto como pueda.",
-            "error": "Hubo un error al enviar el email."
+            "sending": "Enviando tu correo",
+            "success": "¡Correo enviado! Te responderé tan pronto como pueda.",
+            "error": "Hubo un error al enviar el correo."
         },
         "connections": {
             "title": "Conéctate conmigo",

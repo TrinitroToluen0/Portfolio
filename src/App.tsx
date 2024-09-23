@@ -16,7 +16,7 @@ function App() {
 
     return (
         <>
-            <ToastContainer stacked position="bottom-right" autoClose={4000} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
+            <ToastContainer stacked position="bottom-right" autoClose={4000} closeButton hideProgressBar newestOnTop={false} rtl={false} draggable theme="dark" />
             <Header />
             <Home />
             <Projects />
