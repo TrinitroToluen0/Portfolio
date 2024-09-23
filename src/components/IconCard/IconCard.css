@@ -20,7 +20,7 @@
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */
 @media (max-width: 767px) {
-    .skillCard__children .iconCard {
+    .iconCard {
         width: 58px;
         height: 58px;
     }
@@ -28,7 +28,7 @@
 
 /* Estilos para pantallas de tabletas en orientación horizontal */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .skillCard__children .iconCard {
+    .iconCard {
         width: 75px;
         height: 75px;
     }
