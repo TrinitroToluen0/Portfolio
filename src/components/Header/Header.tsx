@@ -69,6 +69,7 @@ export default function Header() {
     }, []);
 
     return (
+        <>
         <header className="header">
             <nav className="nav">
                 <button ref={menuButtonRef} className="header__menu-button" onClick={toggleMenu} aria-label="Menu">
@@ -80,6 +81,11 @@ export default function Header() {
                     <li>
                         <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.HOME}`} className={activeLink === ROUTES.HOME ? "active" : ""}>
                             {t("header.home")}
+                        </a>
+                    </li>
+                    <li>
+                        <a onClick={() => setMenuOpen(false)} href={`#${ROUTES.CAREER}`} className={activeLink === ROUTES.CAREER ? "active" : ""}>
+                            {t("header.career")}
                         </a>
                     </li>
                     <li>
@@ -99,11 +105,11 @@ export default function Header() {
                     </li>
                 </ul>
                 <div className="language-dropdown">
-                    <button onClick={(event) => toggleLanguageMenu(event)}>
+                    <button className="language-dropdown__button" onClick={(event) => toggleLanguageMenu(event)}>
                         <span translate="no" className="material-icons">
                             translate
                         </span>
-                        <p>{languageNames[i18n.language]}</p>
+                        <p className="language-dropdown__button__label">{languageNames[i18n.language]}</p>
                         <span translate="no" className="material-icons">
                             arrow_drop_down
                         </span>
@@ -111,8 +117,8 @@ export default function Header() {
 
                     <ul className={languageMenuOpen ? "open" : ""} ref={languageMenuRef}>
                         {Object.keys(languageNames).map((lng) => (
-                            <li key={lng} onClick={() => handleChangeLanguage(lng)}>
-                                <span className="material-icons check-icon" translate="no">
+                            <li className="language-dropdown__option" key={lng} onClick={() => handleChangeLanguage(lng)}>
+                                <span className="material-icons language-dropdown__option__icon" translate="no">
                                     {i18n.language === lng ? "check" : "radio_button_unchecked"}
                                 </span>
                                 {languageNames[lng]}
@@ -122,5 +128,7 @@ export default function Header() {
                 </div>
             </nav>
         </header>
+        <div className="header-margin"></div>
+        </>
     );
 }

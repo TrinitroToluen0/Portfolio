@@ -1,10 +1,13 @@
 import "./Projects.css";
-import ProjectCard from "../ProjectCard/ProjectCard.tsx";
-import ProjectsData from "./ProjectsData.ts";
+import ProjectCard from "./ProjectCard.tsx";
 import Project from "./ProjectInterface.ts";
 import { useTranslation } from "react-i18next";
 
-export default function Projects() {
+interface ProjectsProps {
+    projectsData: Project[];
+}
+
+export default function Projects({ projectsData }: ProjectsProps) {
     const { t } = useTranslation();
     return (
         <section id="projects" className="projects">
@@ -13,15 +16,18 @@ export default function Projects() {
                 <span className="section-separator"></span>
             </h2>
             <div className="projects__container">
-                {ProjectsData.map((project: Project, index: number) => (
+                {projectsData.map((project: Project, index: number) => (
                     <ProjectCard
                         key={index}
                         image={project.image}
-                        title={t(project.title)}
+                        title={project.title}
+                        startDate={project.startDate}
+                        endDate={project.endDate}
                         techStack={project.techStack}
-                        description={t(project.description)}
+                        description={project.description}
                         repoUrl={project.repoUrl}
-                        demoUrl={project.demoUrl}></ProjectCard>
+                        demoUrl={project.demoUrl}
+                    />
                 ))}
             </div>
         </section>

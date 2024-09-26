@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import enTranslation from "./languages/en.json";
-import esTranslation from "./languages/es.json";
+import enTranslation from "./data/en";
+import esTranslation from "./data/es";
 
 const languageNames: { [key: string]: string } = {
     en: "English",

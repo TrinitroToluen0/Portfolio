@@ -1,0 +1,54 @@
+.projectCard {
+    display: flex;
+    flex-direction: column-reverse;
+    transition: transform 0.2s;
+    text-decoration: none;
+    padding: 1.8rem;
+    gap: 20px;
+}
+
+.projectCard__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.projectCard__information {
+    display: flex;
+    flex-direction: column;
+}
+
+.projectCard__techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.projectCard__title {
+    margin: 0;
+}
+
+.projectCard__date {
+    margin: 0 0 1.5rem;
+    color: var(--secondary-text);
+}
+
+.projectCard__description {
+    flex-grow: 1;
+}
+
+.projectCard__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+/*Poner acostados*/
+@media (min-width: 1441px) {
+    .projectCard {
+        flex-direction: row;
+    }
+    .projectCard__image {
+        width: 45%;
+    }
+}

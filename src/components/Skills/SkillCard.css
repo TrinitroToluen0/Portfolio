@@ -11,12 +11,13 @@
 }
 
 .skillCard__title {
-    margin-bottom: 0;
+    margin: 10px 0 0;
     text-align: center;
 }
 
 .skillCard__description {
     text-align: center;
+    margin: 0;
 }
 
 .skillCard__children {
@@ -24,7 +25,7 @@
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
-    gap: 12px;
+    column-gap: 8px;
     justify-content: center;
     align-items: center;
 }

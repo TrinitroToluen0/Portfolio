@@ -1,8 +1,10 @@
 import { useTranslation } from "react-i18next";
+import CustomMarkdown from "../../utils/CustomMarkdown";
 import "./Home.css";
 
 export default function Home() {
     const { t } = useTranslation();
+
     return (
         <section id="home" className="home">
             <div className="home__inner">
@@ -10,8 +12,9 @@ export default function Home() {
                     <h1 className="home__title">{t("home.sectionTitle")}</h1>
                     <p className="home__subtitle">{t("home.subtitle")}</p>
                 </div>
-                <p className="home__details description" dangerouslySetInnerHTML={{ __html: t("home.description") }}>
-                </p>
+                <div className="home__details">
+                    <CustomMarkdown>{t("home.description")}</CustomMarkdown>
+                </div>
             </div>
         </section>
     );
