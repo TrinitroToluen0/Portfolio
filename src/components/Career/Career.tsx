@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "./career.css";
+import "./Career.css";
 import { Experience } from "./ExperienceInterface";
 import { i18n } from "../../i18n";
 import { formatDuration } from "../../utils/dateUtils.ts";
