@@ -1,7 +1,6 @@
 .projectCard {
     display: flex;
     flex-direction: column-reverse;
-    transition: transform 0.2s;
     text-decoration: none;
     padding: 1.8rem;
     gap: 20px;
@@ -16,6 +15,7 @@
 .projectCard__information {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .projectCard__techStack {
