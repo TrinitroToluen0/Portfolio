@@ -26,7 +26,7 @@ const skillsData: Skill[] = [
             <>
                 {Object.keys(technologies).map((key) => {
                     const technology: Technology = technologies[key];
-                    return <IconCard key={key} alt={technology.displayName} icon={technology.icon} />;
+                    return <IconCard key={key} label={technology.displayName} icon={technology.icon} />;
                 })}
             </>
         ),

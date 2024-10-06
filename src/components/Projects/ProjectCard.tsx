@@ -6,6 +6,7 @@ import CustomMarkdown from "../../utils/CustomMarkdown.tsx";
 import { Technology } from "../../utils/technologies.ts";
 import { i18n } from "../../i18n.ts";
 import { formatDuration } from "../../utils/dateUtils.ts";
+import Button from "../Button/Button.tsx";
 
 export default function ProjectCard({ image, title, startDate, endDate, techStack, description, repoUrl, demoUrl }: Project) {
     const { t } = useTranslation();
@@ -31,16 +32,8 @@ export default function ProjectCard({ image, title, startDate, endDate, techStac
                     <CustomMarkdown>{t(description)}</CustomMarkdown>
                 </div>
                 <div className="projectCard__buttons">
-                    {repoUrl && (
-                        <a className="projectCard__button button link-button" href={repoUrl} target="_blank">
-                            {t("projects.repositoryButtonLabel")}
-                        </a>
-                    )}
-                    {demoUrl && (
-                        <a className="projectCard__button button link-button" href={demoUrl} target="_blank">
-                            {t("projects.demoButtonLabel")}
-                        </a>
-                    )}
+                    {repoUrl && <Button variant="link" label={t("projects.repositoryButtonLabel")} url={repoUrl}></Button>}
+                    {demoUrl && <Button variant="link" label={t("projects.demoButtonLabel")} url={demoUrl}></Button>}
                 </div>
             </div>
             <img className="projectCard__image" src={image} alt={title} />

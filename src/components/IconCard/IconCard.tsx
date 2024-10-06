@@ -2,21 +2,21 @@ import "./IconCard.css"
 
 interface IconCardProps {
     icon: string;
-    alt: string;
+    label: string;
     url?: string;
 }
 
-export default function IconCard ({icon, alt, url}: IconCardProps): React.ReactElement {
+export default function IconCard ({icon, label, url}: IconCardProps): React.ReactElement {
     if (url) {
         return (
-            <a href={url} title={alt} className="iconCard interactive" target="_blank">
-                <img className="iconCard__image" src={icon} alt={alt} title={alt}/>
+            <a href={url} data-social={label} className="iconCard interactive" target="_blank">
+                <img className="iconCard__image" src={icon} alt={label}/>
             </a>
         );
     } else {
         return (
-            <div title={alt} className="iconCard">
-                <img className="iconCard__image" src={icon} alt={alt} title={alt}/>
+            <div data-social={label} className="iconCard">
+                <img className="iconCard__image" src={icon} alt={label} />
             </div>
         );
     }

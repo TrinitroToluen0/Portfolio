@@ -1,7 +1,6 @@
 .iconCard {
-    width: 90px;
-    height: 90px;
-    padding: 8px;
+    width: 75px;
+    height: 75px;
     transition: transform 0.2s;
 }
 
@@ -16,6 +15,27 @@
 
 .iconCard__image[alt="React"] {
     animation: spin infinite 10s linear;
+}
+
+.iconCard::before {
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--border-main-color);
+    color: var(--font-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s cubic-bezier(0.42, 0, 0.44, 1.68);
+}
+
+.iconCard:hover::before {
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

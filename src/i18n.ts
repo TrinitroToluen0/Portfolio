@@ -9,7 +9,8 @@ const languageNames: { [key: string]: string } = {
 };
 
 const browserLanguage = navigator.language.split("-")[0];
-const storedLanguage = localStorage.getItem("language") || browserLanguage || "en";
+const storedLanguage = localStorage.getItem("language");
+const fallbackLanguage = "en";
 
 i18n.use(initReactI18next).init({
     resources: {
@@ -20,8 +21,8 @@ i18n.use(initReactI18next).init({
             translation: esTranslation,
         },
     },
-    lng: storedLanguage,
-    fallbackLng: "en",
+    lng: storedLanguage || browserLanguage || fallbackLanguage,
+    fallbackLng: fallbackLanguage,
     interpolation: {
         escapeValue: false,
     },

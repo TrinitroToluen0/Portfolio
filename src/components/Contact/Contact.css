@@ -6,10 +6,6 @@
     gap: 1.5rem;
 }
 
-.contact .card {
-    padding: 30px;
-}
-
 .contact h3 {
     text-align: center;
 }
@@ -26,9 +22,9 @@
 
 .contact__socials {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     flex-grow: 1;
 }
 
@@ -102,10 +98,6 @@
     font-size: inherit;
 }
 
-.contact__form textarea::placeholder{
-    text-transform: uppercase;
-}
-
 .contact__inputBox label {
     position: absolute;
     left: 0;
@@ -114,7 +106,6 @@
     color: #888;
     transition: 0.2s;
     padding: 0 10px;
-    text-transform: uppercase;
 }
 
 .contact__form input:focus ~ label,
@@ -134,22 +125,28 @@
     border-bottom: 1px solid var(--primary-color);
 }
 
-.contact__submitButton {
-    margin-top: 30px;
+/* Estos selectores de botón no me gustan, los margenes deberían ser problema del contenedor. Pero por ahora es lo que hay */
+.contact__form .button {
+    margin-top: 20px;
 }
 
-.contact__form.valid .contact__submitButton {
+.contact__form.valid .button {
     background-color: var(--primary-color);
-    color: var(--font-white);
-    font-weight: 500;
-    cursor: pointer;
 }
 
-.loading-icon {
-    width: 32px;
-    height: 32px;
-    user-select: none;
-    -webkit-user-drag: none;
+/* Estos estilos sirven el único propósito de hacer que los botones de "Connect with me" aprovechen todo el espacio disponible, nada componetizables. */
+.contact__socials .button:has(.button__icon) {
+    height: 70px;
+    border-radius: 0;
+}
+
+.contact__socials .button:has(.button__icon) .button__icon {
+    width: 55px;
+    height: 55px;
+}
+
+.contact__socials .button:has(.button__icon) .button__label {
+    font-size: 1.5rem;
 }
 
 /* Estilos para pantallas pequeñas (teléfonos móviles) */

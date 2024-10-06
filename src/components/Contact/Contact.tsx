@@ -1,10 +1,10 @@
 import "./Contact.css";
 import React, { useEffect, useState } from "react";
 import * as assets from "../../assets.ts";
-import IconCard from "../IconCard/IconCard.tsx";
 import config from "../../config.ts";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import Button from "../Button/Button.tsx";
 
 enum FORM_STATUSES {
     VALID,
@@ -152,19 +152,16 @@ export default function Contact() {
                                 disabled={formStatus === FORM_STATUSES.SUBMITTING}
                             />
                         </div>
-
-                        <button type="submit" className="contact__submitButton button" disabled={formStatus !== FORM_STATUSES.VALID}>
-                            {t("contact.form.sendLabel")}
-                        </button>
+                        <Button variant="submit" label={t("contact.form.sendLabel")} disabled={formStatus !== FORM_STATUSES.VALID}></Button>
                     </form>
                 </div>
                 <div className="contact__right card">
                     <h3 className="contact__right__title">{t("contact.connections.title")}</h3>
                     <p className="contact__right__description description">{t("contact.connections.description")}</p>
                     <div className="contact__socials">
-                        <IconCard icon={assets.linkedinIcon} alt="LinkedIn" url={config.LINKEDIN_PROFILE} />
-                        <IconCard icon={assets.githubIcon} alt="GitHub" url={config.GITHUB_PROFILE} />
-                        <IconCard icon={assets.pdfIcon} alt="Curriculum" url={assets.curriculum}></IconCard>
+                        <Button variant="link" label="LinkedIn" url={config.LINKEDIN_PROFILE} icon={assets.linkedinIcon}></Button>
+                        <Button variant="link" label="GitHub" url={config.GITHUB_PROFILE} icon={assets.githubIcon}></Button>
+                        <Button variant="link" label="Curriculum" url={assets.curriculum} icon={assets.pdfIcon}></Button>
                     </div>
                 </div>
             </div>

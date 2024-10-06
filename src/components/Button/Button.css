@@ -1,0 +1,40 @@
+.button {
+    width: 100%;
+    max-width: 600px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--border-main-color);
+    transition: background-color 0.3s;
+    padding: 10px 20px;
+    color: var(--font-white);
+    user-select: none;
+    -webkit-user-drag: none;
+    font-size: inherit;
+}
+
+.button:not([disabled]):hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.button[disabled] {
+    color: #999;
+}
+
+.button--link {
+    text-decoration: none;
+}
+
+.button__icon {
+    width: 30px;
+    height: 30px;
+    -webkit-user-drag: none;
+}
+
+.button__label {
+    flex-grow: 1;
+    text-align: center;
+}
