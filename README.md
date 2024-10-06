@@ -1,9 +1,14 @@
-Este proyecto está bajo licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0).
+# Software Developer Portfolio
+This project was made to showcase my expertise as a software developer.
 
-Bajo esta licencia, puedes:
+## Technologies
 
-- Compartir: Copiar y redistribuir el material en cualquier medio o formato, siempre que se dé crédito al autor original.
-- NoComercial: No puedes utilizar el material con fines comerciales.
-- SinDerivadas: No puedes modificar, transformar o construir sobre este material.
+- **Languages**: TypeScript, TSX, HTML, CSS
+- **Frontend Stack**: React, Vite
 
-Más detalles sobre los términos de esta licencia se pueden encontrar en https://creativecommons.org/licenses/by-nc-nd/4.0/.
+## Features
+
+- **Dynamic Resume Generation**: Users can download resumes in various languages based on their selection.
+- **Internationalization (i18n)**: The portfolio supports multiple languages, dynamically adapting content to match the user's language preference.
+- **Responsive Design**: The layout is optimized for different devices and screen sizes, ensuring a seamless and accessible user experience.
+- **Contact Form**: Users can fill out a form to contact you via email, utilizing ReCAPTCHA V3 technology to protect against spam and keep your email address confidential.
