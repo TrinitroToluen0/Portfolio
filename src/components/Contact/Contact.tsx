@@ -5,6 +5,7 @@ import config from "../../config.ts";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import Button from "../Button/Button.tsx";
+import { i18n } from "../../i18n.ts";
 
 enum FORM_STATUSES {
     VALID,
@@ -24,6 +25,7 @@ export default function Contact() {
     const [formStatus, setFormStatus] = useState(FORM_STATUSES.INVALID);
     const [charCount, setCharCount] = useState(-50);
     const { t } = useTranslation();
+    const curriculumKey = `curriculum${i18n.language.toUpperCase()}`;
 
     // Validación de email y mensaje
     useEffect(() => {
@@ -161,7 +163,7 @@ export default function Contact() {
                     <div className="contact__socials">
                         <Button variant="link" label="LinkedIn" url={config.LINKEDIN_PROFILE} icon={assets.linkedinIcon}></Button>
                         <Button variant="link" label="GitHub" url={config.GITHUB_PROFILE} icon={assets.githubIcon}></Button>
-                        <Button variant="link" label="Curriculum" url={assets.curriculum} icon={assets.pdfIcon}></Button>
+                        <Button variant="link" label="Curriculum" url={assets[curriculumKey as keyof typeof assets]} icon={assets.pdfIcon}></Button>
                     </div>
                 </div>
             </div>

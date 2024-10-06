@@ -1,3 +1,5 @@
 User-agent: *
+Disallow: /curriculum_EN.pdf
+Disallow: /curriculum_ES.pdf
 Allow: /
 Sitemap: https://javiermenco.com/sitemap.xml

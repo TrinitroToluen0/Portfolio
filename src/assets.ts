@@ -28,4 +28,5 @@ export { default as composerIcon } from "/composer.svg";
 export { default as CiesePreview } from "/ciese-1.webp";
 export { default as GrowyPreview } from "/growy-1.webp";
 export { default as ChatAppPreview } from "/chatApp-1.webp";
-export { default as curriculum } from "/curriculum.pdf";
+export { default as curriculumEN } from "/curriculum_EN.pdf";
+export { default as curriculumES } from "/curriculum_ES.pdf";
