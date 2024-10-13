@@ -24,8 +24,8 @@
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 8px;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
     justify-content: center;
     align-items: center;
 }
@@ -34,11 +34,5 @@
 @media (max-width: 500px) {
     .skillCard {
         min-height: 0;
-    }
-}
-
-@media (max-width: 767px) {
-    .skillCard__children {
-        gap: 0px;
     }
 }
