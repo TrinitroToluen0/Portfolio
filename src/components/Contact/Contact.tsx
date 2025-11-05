@@ -23,7 +23,7 @@ export default function Contact() {
     const [emailValid, setEmailValid] = useState(false);
     const [messageValid, setMessageValid] = useState(false);
     const [formStatus, setFormStatus] = useState(FORM_STATUSES.INVALID);
-    const [charCount, setCharCount] = useState(-50);
+    const [charCount, setCharCount] = useState(-minLength);
     const { t } = useTranslation();
     const curriculumKey = `curriculum${i18n.language.toUpperCase()}`;
 
