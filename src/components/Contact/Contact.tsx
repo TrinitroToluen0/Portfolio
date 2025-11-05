@@ -13,7 +13,7 @@ enum FORM_STATUSES {
     INVALID,
 }
 
-const minLength: number = 50;
+const minLength: number = 30;
 const maxLength: number = 5000 + minLength;
 
 export default function Contact() {
