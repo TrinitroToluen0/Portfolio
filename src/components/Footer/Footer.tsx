@@ -6,9 +6,7 @@ export default () => {
     const { t } = useTranslation();
     return (
         <footer className="footer">
-            <p>
-                <CustomMarkdown>{t("footer.text")}</CustomMarkdown>
-            </p>
+            <CustomMarkdown>{t("footer.text")}</CustomMarkdown>
         </footer>
     );
 };

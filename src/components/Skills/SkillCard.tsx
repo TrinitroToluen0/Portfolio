@@ -8,7 +8,7 @@ export default function SkillCard({ image, title, description, children }: Skill
         <div className="skillCard card">
             {image && <img className="skillCard__image" src={image} alt={title} />}
             <h3 className="skillCard__title">{title}</h3>
-            {description && <p className="skillCard__description"><CustomMarkdown>{description}</CustomMarkdown></p>}
+            {description && <div className="skillCard__description"><CustomMarkdown>{description}</CustomMarkdown></div>}
             {children && (
                 <div className="skillCard__children">
                     {React.Children.map(children, (child) => (
