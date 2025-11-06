@@ -3,52 +3,42 @@ export interface Env {
     PORTFOLIO_CONTACT_EMAIL: string;
 }
 
-export async function onRequestPost(context: { request: Request; env: Env; }) {
-    const { request, env } = context;
+export async function onRequestPost({ request, env }: { request: Request; env: Env }) {
+    try {
+        console.log("ENV keys:", Object.keys(env));
 
-    console.log("ENV keys:", Object.keys(env)); // para verificar que sí llegan
-    const { fullName, email, message, token } = await request.json();
+        const body = await request.json();
+        console.log("Body recibido:", body);
 
-    const recaptchaRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${env.CAPTCHA_SECRET_KEY}&response=${token}`,
-    });
-
-    const data = await recaptchaRes.json();
-
-    if (!data.success || data.score <= 0.5) {
-        return new Response(JSON.stringify({ ok: false, error: "Captcha validation failed" }), {
-            headers: { "Content-Type": "application/json" },
-            status: 403,
+        // ejemplo: si haces un fetch al captcha o a otro servicio, ponlo dentro del try
+        const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+            method: "POST",
+            body: new URLSearchParams({
+                secret: env.CAPTCHA_SECRET_KEY,
+                response: body.token,
+            }),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
         });
-    }
 
-    // MailChannels email
-    const response = await fetch("https://api.mailchannels.net/tx/v1/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            personalizations: [
-                {
-                    to: [{ email: env.PORTFOLIO_CONTACT_EMAIL }],
-                },
-            ],
-            from: { email, name: fullName },
-            subject: "Contacto a través del portfolio",
-            content: [
-                {
-                    type: "text/plain",
-                    value: `Nombre: ${fullName}\nCorreo electrónico: ${email}\n\n${message}`,
-                },
-            ],
-        }),
-    });
+        const data = await res.json();
+        console.log("Respuesta reCAPTCHA:", data);
 
-    if (response.ok) {
-        return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json" }, status: 200 });
-    } else {
-        const error = await response.text();
-        return new Response(JSON.stringify({ ok: false, error }), { headers: { "Content-Type": "application/json" }, status: 500 });
+        if (!data.success) {
+            return new Response(JSON.stringify({ success: false, error: "Captcha inválido" }), {
+                status: 400,
+                headers: { "Content-Type": "application/json" },
+            });
+        }
+
+        return new Response(JSON.stringify({ success: true }), {
+            headers: { "Content-Type": "application/json" },
+        });
+
+    } catch (err: any) {
+        console.error("ERROR en Worker:", err.message || err);
+        return new Response(JSON.stringify({ error: err.message || "Error interno" }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+        });
     }
 }
