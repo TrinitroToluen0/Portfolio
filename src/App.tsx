@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer.tsx";
 
 // Functions imports
 import { scrollToElement } from "./utils/scrollToElement.ts";
+import { loadRecaptcha } from "./utils/loadRecaptcha.ts";
 
 // Libraries imports
 import { useEffect } from "react";
@@ -19,6 +20,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Data imports
+import config from "./config.ts";
 import careerData from "./data/careerData.ts";
 import projectsData from "./data/projectsData.ts";
 import skillsData from "./data/skillsData.tsx";
@@ -26,9 +28,15 @@ import skillsData from "./data/skillsData.tsx";
 function App() {
     useEffect(scrollToElement, []);
 
+    useEffect(() => {
+        loadRecaptcha(config.RECAPTCHA_SITE_KEY).catch(() => {
+            console.error("Error loading reCAPTCHA");
+        });
+    }, []);
+
     return (
         <>
-            <ToastContainer stacked position="bottom-right" autoClose={4000} closeButton hideProgressBar newestOnTop={false} rtl={false} draggable theme="dark" />
+            <ToastContainer stacked position="bottom-right" autoClose={4000} closeButton hideProgressBar newestOnTop={false} rtl={false} theme="dark" />
             <Header />
             <Home />
             <Career careerData={careerData}></Career>

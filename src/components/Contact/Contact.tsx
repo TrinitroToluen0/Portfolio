@@ -55,47 +55,42 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formStatus !== FORM_STATUSES.VALID) return;
+
         setFormStatus(FORM_STATUSES.SUBMITTING);
+        const id = toast.loading(t("contact.notifications.sending"));
 
-        // Obtener el token de reCAPTCHA
-        const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
-
-        // Validar el formulario
-        if (emailValid && messageValid && fullName) {
-            const formData = {
-                fullName,
-                email,
-                message,
-                token,
-            };
-
-            const id = toast.loading(t("contact.notifications.sending"));
-
+        grecaptcha.ready(async () => {
             try {
-                const response = await fetch(config.CONTACT_ENDPOINT, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData),
-                });
+                const token = await grecaptcha.execute(config.RECAPTCHA_SITE_KEY, { action: "contact" });
+                const formData = { fullName, email, message, token };
 
-                const data = await response.json();
+                try {
+                    const response = await fetch(config.CONTACT_ENDPOINT, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData),
+                    });
 
-                if (data.success) {
-                    setMessage("");
-                    setCharCount(-50);
-                    setFormStatus(FORM_STATUSES.INVALID);
-                    toast.update(id, { render: t("contact.notifications.success"), type: "success", isLoading: false, closeButton: true });
-                } else {
+                    const data = await response.json();
+
+                    if (data.success) {
+                        setMessage("");
+                        setCharCount(-minLength);
+                        setFormStatus(FORM_STATUSES.INVALID);
+                        toast.update(id, { render: t("contact.notifications.success"), type: "success", isLoading: false, closeButton: true });
+                    } else {
+                        setFormStatus(FORM_STATUSES.VALID);
+                        toast.update(id, { render: t("contact.notifications.error"), type: "error", isLoading: false, closeButton: true });
+                    }
+                } catch {
                     setFormStatus(FORM_STATUSES.VALID);
                     toast.update(id, { render: t("contact.notifications.error"), type: "error", isLoading: false, closeButton: true });
                 }
-            } catch (error) {
+            } catch (err) {
                 setFormStatus(FORM_STATUSES.VALID);
-                toast.update(id, { render: t("contact.notifications.error"), type: "error", isLoading: false, closeButton: true });
+                toast.error(t("contact.notifications.error"));
             }
-        }
+        });
     };
 
     return (
