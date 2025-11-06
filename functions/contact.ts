@@ -1,4 +1,12 @@
-export async function onRequestPost({ request, env }: { request: Request; env: Record<string, string> }) {
+export interface Env {
+    CAPTCHA_SECRET_KEY: string;
+    PORTFOLIO_CONTACT_EMAIL: string;
+}
+
+export async function onRequestPost(context: { request: Request; env: Env; }) {
+    const { request, env } = context;
+
+    console.log("ENV keys:", Object.keys(env)); // para verificar que sí llegan
     const { fullName, email, message, token } = await request.json();
 
     const recaptchaRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
