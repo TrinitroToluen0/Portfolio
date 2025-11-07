@@ -1,6 +1,7 @@
 export interface Env {
     CAPTCHA_SECRET_KEY: string;
     PORTFOLIO_CONTACT_EMAIL: string;
+    MAILCHANNELS_API_KEY: string;
 }
 
 export interface ContactBody {
@@ -69,7 +70,7 @@ export async function onRequestPost({ request, env }: { request: Request; env: E
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     personalizations: [{ to: [{ email: env.PORTFOLIO_CONTACT_EMAIL }] }],
-                    from: { email: "jmencobusiness@gmail.com", name: "Portfolio Contact Form" },
+                    from: { email: "no-reply@portfolio-2av.pages.dev", name: "Portfolio Contact Form" },
                     subject: "📬 New message from the portfolio",
                     content: [{ type: "text/plain", value: `Name: ${fullName}\nEmail: ${senderEmail}\n\n${message}` }],
                 }),
