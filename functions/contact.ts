@@ -53,7 +53,7 @@ export async function onRequestPost({ request, env }: { request: Request; env: E
         const resend = new Resend(env.RESEND_API_KEY);
 
         const result = await resend.emails.send({
-            from: "Portfolio Contact <onboarding@resend.dev>", // puedes usar tu remitente verificado o genérico
+            from: "Portfolio Contact <onboarding@resend.dev>",
             to: [env.PORTFOLIO_CONTACT_EMAIL],
             subject: "📬 New message from your portfolio",
             text: `Name: ${fullName}\nEmail: ${senderEmail}\n\n${message}`,

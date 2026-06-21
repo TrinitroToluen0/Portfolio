@@ -43,7 +43,7 @@ export default {
         chatApp: {
             title: "💬 ChatApp",
             description:
-                "Aplicación de chat en tiempo real construida con *Socket.io*, soportando canales (grupos) y fotos de perfil.\n\nComencé este proyecto en mi segundo semestre de universidad para practicar lo aprendido y *aprender algo nuevo*. Logré desarrollar la mayor parte de la aplicación y también aprendí mucho sobre *sockets* y sus diversos casos de uso, desarrollando todo el frontend *sin frameworks*.",
+                "Aplicación de chat en tiempo real construida con *Socket.io*, soporta canales (grupos) y fotos de perfil.\n\nComencé este proyecto en mi segundo semestre de universidad para practicar lo aprendido y *aprender algo nuevo*. Logré desarrollar la mayor parte de la aplicación y también aprendí mucho sobre *sockets* y sus diversos casos de uso, desarrollando todo el frontend *sin frameworks*.",
         },
     },
     skills: {
